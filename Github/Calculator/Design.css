@@ -1,0 +1,519 @@
+/*Tag*/
+body{
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+    /*Font*/
+AA{
+    color:rgb(150, 40, 0);
+    font-size: 20px;
+}
+AB{
+    color:rgb(114, 0, 0);
+    font-size:30px;
+    font-weight:bolder;
+}
+AC{
+    color:rgb(255, 255, 255);
+    font-size:34px;
+    font-weight:bolder;
+}
+/*Class*/
+.Container{
+    min-width:100px;
+    min-height: 200px;
+    background:linear-gradient(to left,#4A628A,#7AB2D3,#B9E5E8,#DFF2EB);
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: relative;
+    top:-5px;
+    left:-5px;
+}
+
+.Display {
+    width: 1500px;
+    height: 100px;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #ddd;
+    border-radius: 4px;
+    background-color: #817e7e;
+    position: absolute;
+    top:5px;
+    left:5px;
+}
+
+/*Standard Calculate*/
+#Standard{
+    width:100px;
+    height: 50px;
+    background-color:transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:5px;
+    position: absolute;
+    overflow: hidden;
+    top:50px;
+    left:50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#Standard:hover{
+    background-color: #F5F4B3;
+}
+
+.StandardCal{
+    width:1000px;
+    height: 450px;
+    background:linear-gradient(to right,#15B392,#54C392,#73EC8B,#37AFE1);
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:210px;
+    left:250px;
+    text-align: center;
+}
+        /*Button*/
+#Button_1{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left:10px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_1:hover{
+    background-color: #F5F4B3;
+}
+#Button_2{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left:120px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_2:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_3{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left:230px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_3:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_4{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:120px;
+    left:10px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_4:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_5{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:120px;
+    left:120px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_5:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_6{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:120px;
+    left:230px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_6:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_7{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:230px;
+    left:10px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_7:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_8{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:230px;
+    left:120px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_8:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_9{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:230px;
+    left:230px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_9:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_0{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:340px;
+    left:120px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_0:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_dot{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:340px;
+    left:10px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_dot:hover{
+    background-color: #F5F4B3;
+}
+#Button_equal{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:340px;
+    left:230px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_equal:hover{
+    background-color: #F5F4B3;
+}
+#Button_clear{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:340px;
+    left: 350px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_clear:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_plus{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left: 350px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_plus:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_minus{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:120px;
+    left: 350px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_minus:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_mutiply{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left: 450px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_mutiply:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_divide{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:120px;
+    left: 450px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_divide:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_open{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left: 700px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_open:hover{
+    background-color: #F5F4B3;
+}
+#Button_close{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left: 800px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_close:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_power{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:10px;
+    left: 600px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_power:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_sqrt{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:110px;
+    left: 600px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_sqrt:hover{
+    background-color: #F5F4B3;
+}
+
+#Button_backspace{
+    width:80px;
+    height: 60px;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+    border-color: black;
+    border-radius:3px;
+    position: absolute;
+    overflow: hidden;
+    top:340px;
+    left: 450px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 20px;
+}
+#Button_backspace:hover{
+    background-color: #F5F4B3;
+}
