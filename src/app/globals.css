@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+header, section {
+  @apply py-20;
+  .text-primary {
+    color: #2563EB!important;
+  }
+  .bg-primary {
+    background-color: #2563EB!important;
+  }
+  .bg-secondary{ 
+    background-color: #DBEAFE!important;
+  }
+  &.bg-secondary{ 
+    background-color: #DBEAFE!important;
+  }
+  .border-primary {
+    border-color: #2563EB!important;
+  }
+}
