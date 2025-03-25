@@ -13,7 +13,7 @@ const Cook = () => {
                     </div>
                     <div className='col-span-6 flex flex-col justify-center'>
                         <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase text-start'>Tư Vấn Với Chúng Tôi</p>
-                        <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white text-start">
+                        <h2 className="text-3xl lg:text-4xl font-semibold text-black dark:text-white text-start">
                             Vì sao bạn nên chọn TalkToDoc?
                         </h2>
                         <p className='text-black/50 dark:text-white/50 md:text-lg font-normal mb-10 text-start mt-2'>TalkToDoc là nền tảng tư vấn y tế trực tuyến giúp bạn kết nối nhanh chóng với bác sĩ chuyên khoa mọi lúc, mọi nơi. Với sự hỗ trợ của AI thông minh, người dùng có thể nhận tư vấn ban đầu, hướng dẫn dinh dưỡng, vật lý trị liệu và chăm sóc sức khỏe chỉ trong vài bước đơn giản. Tiết kiệm thời gian, chi phí và đặc biệt phù hợp cho người bận rộn, người ở xa hoặc cần theo dõi sức khỏe thường xuyên. TalkToDoc – chăm sóc sức khỏe dễ dàng hơn bao giờ hết.</p>

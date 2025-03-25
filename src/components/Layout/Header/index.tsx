@@ -11,7 +11,7 @@ import Signin from "@/components/Auth/SignIn";
 import SignUp from "@/components/Auth/SignUp";
 import { useTheme } from "next-themes";
 import { Icon } from "@iconify/react/dist/iconify.js";
-
+import { useRouter } from "next/navigation";
 const Header: React.FC = () => {
   const pathUrl = usePathname();
   const { theme, setTheme } = useTheme();
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
   const signInRef = useRef<HTMLDivElement>(null);
   const signUpRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-
+  const router = useRouter();
   const handleScroll = () => {
     setSticky(window.scrollY >= 20);
   };
@@ -91,10 +91,10 @@ const Header: React.FC = () => {
               +84 123456789
             </Link>
             <Link
-              href="#"
+              href="https://vlu-talk-to-doc.vercel.app/"
               className="hidden lg:block text-primary bg-secondary hover:text-white hover:bg-primary font-medium text-lg py-4 px-8 rounded-full"
               onClick={() => {
-                setIsSignInOpen(true);
+                console.log("Đăng Nhập");
               }}
             >
               Đăng Nhập
@@ -115,13 +115,13 @@ const Header: React.FC = () => {
                       className="text-black hover:text-primary text-24 inline-block me-2"
                     />
                   </button>
-                  <Signin />
+                  {/* <Signin /> */}
                 </div>
               </div>
             )}
             <Link
               href="#"
-              className="hidden lg:block bg-primary text-white hover:bg-secondary hover:text-primary font-medium text-lg py-4 px-8 rounded-full "
+              className="hidden lg:block bg-primary text-white hover:bg-secondary hover:text-white font-medium text-lg py-4 px-8 rounded-full "
               onClick={() => {
                 setIsSignUpOpen(true);
               }}
@@ -132,7 +132,7 @@ const Header: React.FC = () => {
               <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
                 <div
                   ref={signUpRef}
-                  className="relative mx-auto w-full max-w-md overflow-hidden rounded-lg bg-dark_grey bg-opacity-90 backdrop-blur-md px-8 pt-14 pb-8 text-center"
+                  className="bg-white relative mx-auto w-full max-w-lg overflow-hidden rounded-lg bg-dark_grey bg-opacity-90 backdrop-blur-md px-8 pt-14 pb-8 text-center"
                 >
                   <button
                     onClick={() => setIsSignUpOpen(false)}

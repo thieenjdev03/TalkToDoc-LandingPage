@@ -10,7 +10,7 @@ const Newsletter = () => {
                     <div className="col-span-7">
                         <div className="m-10 lg:ml-32 lg:mt-20 lg:mb-20">
                             <p className="text-lg font-normal text-white mb-3 ls-51"> Thông Báo  </p>
-                            <h2 className="text-3xl md:text-5xl font-semibold text-white mb-8">
+                            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-8">
                                 Tư Vấn Miễn Phí Ngay
                             </h2>
 
@@ -18,7 +18,7 @@ const Newsletter = () => {
                                 <div className="relative text-white focus-within:text-white flex flex-row-reverse shadow-fi rounded-full">
                                     <input type="Email address" name="q" className="py-6 sm:py-8 text-sm w-full text-black dark:text-white rounded-full pl-4 par-87 focus:outline-none focus:text-black" placeholder="@ Nhập địa chỉ email của bạn" autoComplete="off" />
                                     <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                                        <button type="submit" className="p-2 bg-gray-900 hover:scale-110 duration-300 rounded-full">
+                                        <button type="submit" className="p-2 bg-primary hover:scale-110 duration-300 rounded-full">
                                             <Icon
                                                 icon="tabler:arrow-narrow-right"
                                                 width="32"
@@ -32,9 +32,9 @@ const Newsletter = () => {
                         </div>
                     </div>
                     <div className="col-span-5 relative hidden md:block">
-                        {/* <div>
-                            <Image src={'/images/Newsletter/soup.png'} alt="soup-image" width={400} height={400} className='-mt-24' />
-                        </div> */}
+                        <div>
+                            <Image src={'https://res.cloudinary.com/dut4zlbui/image/upload/v1742922826/hp91mv2b4bcxdw3m99e8.webp'} alt="soup-image" width={300} height={300} className='mt-14 ml-10' />
+                        </div>
                         {/* <div className="absolute top-[78%]">
                             <Image src={'/images/Newsletter/onion.svg'} alt="onion-image" width={300} height={122} />
                         </div> */}

@@ -39,26 +39,27 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="mb-10 text-center mx-auto inline-block">
+      <div className="mb-4 text-center mx-auto inline-block">
         <Logo />
       </div>
 
-      <SocialSignUp />
+      {/* <SocialSignUp /> */}
 
-      <span className="z-1 relative my-8 block text-center before:content-[''] before:absolute before:h-px before:w-40% before:bg-dark_border before:bg-opacity-60 before:left-0 before:top-3 after:content-[''] after:absolute after:h-px after:w-40% after:bg-dark_border after:bg-opacity-60 after:top-3 after:right-0">
+      {/* <span className="z-1 relative my-8 block text-center before:content-[''] before:absolute before:h-px before:w-40% before:bg-dark_border before:bg-opacity-60 before:left-0 before:top-3 after:content-[''] after:absolute after:h-px after:w-40% after:bg-dark_border after:bg-opacity-60 after:top-3 after:right-0">
         <span className="text-body-secondary relative z-10 inline-block px-3 text-base text-white">
           OR
         </span>
-      </span>
-
+      </span> */}
+      <h1 className="text-2xl text-primary">Đăng Ký</h1>
+      <div className="mb-4 text-sm text-grey">Nhập thông tin tài khoản bên dưới: </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-[22px]">
           <input
             type="text"
-            placeholder="Name"
-            name="name"
+            placeholder="Tài Khoản"
+            name="username"
             required
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-white dark:focus:border-primary"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
         <div className="mb-[22px]">
@@ -67,43 +68,67 @@ const SignUp = () => {
             placeholder="Email"
             name="email"
             required
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-white dark:focus:border-primary"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
         <div className="mb-[22px]">
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Mật Khẩu"
             name="password"
             required
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-white dark:focus:border-primary"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="text"
+            placeholder="Tên Đầy đủ                                                        "
+            name="fullName"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="text"
+            placeholder="Số điện thoại"
+            name="phoneNumber"
+            required
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="date"
+            name="Ngày Sinh"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
         <div className="mb-9">
-          <button
+           <button
             type="submit"
-            className="flex w-full items-center text-18 font-medium justify-center rounded-md bg-primary px-5 py-3 text-darkmode transition duration-300 ease-in-out hover:bg-transparent hover:text-primary border-primary border "
+            className="flex w-full text-white items-center text-18 font-medium justify-center rounded-md bg-primary px-5 py-3 text-darkmode transition duration-300 ease-in-out hover:bg-transparent hover:text-white border-primary border "
           >
-            Sign Up {loading && <Loader />}
+            Đăng Ký {loading && <Loader />}
           </button>
         </div>
       </form>
 
-      <p className="text-body-secondary mb-4 text-white text-base">
-        By creating an account you are agree with our{" "}
+      <p className="text-body-secondary mb-4 text-black text-base">
+        Bạn có đồng ý với nội quy của chúng tôi sau khi tạo tại khoản chứ?{" "}
         <a href="/#" className="text-primary hover:underline">
-          Privacy
+          Nội Quy
         </a>{" "}
-        and{" "}
+        và{" "}
         <a href="/#" className="text-primary hover:underline">
-          Policy
+          Quy Định
         </a>
       </p>
 
-      <p className="text-body-secondary text-white text-base">
-        Already have an account?
+      <p className="text-body-secondary text-black text-base">
+        Đã có tài khoản?
         <Link href="/" className="pl-2 text-primary hover:underline">
-          Sign In
+          Đăng Nhập
         </Link>
       </p>
     </>

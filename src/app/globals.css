@@ -38,8 +38,8 @@ section {
 
       .specialties-img {
         background-color: white;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         display: flex;
@@ -47,10 +47,10 @@ section {
         align-items: center;
         justify-content: center;
         bottom: 0px;
-        right: 70px;
+        right: 100px;
 
         img {
-          height: 60px;
+          height: 60%;
           width: auto;
           object-fit: cover;
         }

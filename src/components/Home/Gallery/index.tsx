@@ -14,11 +14,11 @@ const Gallery = () => {
     }, [])
 
     return (
-        <section>
+        <section id="process-section">
             <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md' id='gallery-section'>
                 <div className="text-center">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>Quy Trình</p>
-                    <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white">
+                    <h2 className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
                         Quy Trình Tư Vấn Khám Dễ Dàng, Nhanh Chóng.
                     </h2>
                 </div>

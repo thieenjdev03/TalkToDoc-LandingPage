@@ -43,7 +43,7 @@ const Expert = () => {
             <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
                 <div className="text-center">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>
-                    <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white">
+                    <h2 className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
                         Danh Sách Bác Sĩ Hàng Đầu Tại Nền Tảng
                     </h2>
                 </div>
@@ -54,7 +54,7 @@ const Expert = () => {
                                 <div className="relative wrapper-image">
                                     <Image src={items.imgSrc} alt="gaby" width={180} height={180} className="inline-block m-auto" />
                                     <div className="absolute top-[50%] right-[2%] specialties-img">
-                                        <Image src={'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/66a0de06fa0eae55f3570e1c_mental-health%201.svg'} alt="specialties" width={180} height={180} />
+                                        <Image src={items.imgSpecialty} alt="specialties" width={50} height={50} />
                                     </div>
                                 </div>
                                 <h3 className='text-2xl font-semibold text-lightblack mt-2'>{items.name}</h3>

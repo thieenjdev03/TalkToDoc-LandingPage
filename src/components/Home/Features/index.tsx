@@ -44,7 +44,7 @@ const Features = () => {
             <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
                 <div className='text-center mb-14' >
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>Chuyên Khoa</p>
-                    <h2 className='text-3xl lg:text-5xl font-semibold text-black dark:text-white lg:max-w-60% mx-auto'>TalkToDoc hỗ trợ đa dạng các chuyên khoa</h2>
+                    <h2 className='text-3xl lg:text-4xl font-semibold text-black dark:text-white lg:max-w-60% mx-auto'>TalkToDoc hỗ trợ đa dạng các chuyên khoa</h2>
                 </div>
                 <Slider {...settings}>
                     {FeaturesData.map((items, i) => (
