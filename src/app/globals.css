@@ -6,21 +6,155 @@ html {
   scroll-behavior: smooth;
 }
 
-header, section {
+header,
+section {
   @apply py-20;
+
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+
+  .logo-image {
+    img {
+      width: 100px;
+      height: auto;
+    }
+  }
+
   .text-primary {
-    color: #2563EB!important;
+    color: #2563EB !important;
   }
+
+  .slick-slide {
+    .wrapper-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 200px;
+        width: auto;
+        object-fit: cover;
+      }
+
+      .specialties-img {
+        background-color: white;
+        width: 80px;
+        height: 80px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        justify-content: center;
+        bottom: 0px;
+        right: 70px;
+
+        img {
+          height: 60px;
+          width: auto;
+          object-fit: cover;
+        }
+      }
+    }
+
+  }
+
   .bg-primary {
-    background-color: #2563EB!important;
+    background-color: #2563EB !important;
   }
-  .bg-secondary{ 
-    background-color: #DBEAFE!important;
+
+  .bg-secondary {
+    background-color: #DBEAFE !important;
   }
-  &.bg-secondary{ 
-    background-color: #DBEAFE!important;
+
+  &.bg-secondary {
+    background-color: #DBEAFE !important;
   }
+
+  .work-item-wrapper {
+    background: linear-gradient(to top, #DBEAFE 5%, transparent 100%);
+    height: 360px;
+  }
+
+  .slick-slider {
+    height: fit-content;
+    max-height: 400px;
+
+    .slick-list {
+      height: fit-content;
+      max-height: 400px;
+    }
+
+    .slick-track {
+      height: fit-content;
+      max-height: 400px;
+
+      .slick-slide {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .process-step-list {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+
+    .process-step-item {
+      display: flex;
+      padding: 20px 0px;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      width: 220px;
+      display: flex;
+      opacity: 0;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      .step-image {}
+
+      .step-name {
+        color: #2563EB;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-align: center;
+      }
+
+      .step-description {
+        color: var(--restaurant-tailwind-nextjs-free-vercel-app-black-50, var(--color-black-50, rgba(0, 0, 0, 0.50)));
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+        /* 171.429% */
+      }
+    }
+  }
+
+  .work-img-bg {
+    top: -40px;
+    left: 35%;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+    img {
+      width: 50%;
+      height: 50%;
+      object-fit: cover;
+    }
+  }
+
   .border-primary {
-    border-color: #2563EB!important;
+    border-color: #2563EB !important;
   }
 }

@@ -54,7 +54,7 @@ export const QuickStart = () => {
         </div>
         <p className="text-base font-medium text-muted text-opacity-60 my-4">
           This command will start a local webserver{" "}
-          <span className="dark:text-black">http://localhost:3000:</span>
+          <span className="dark:text-black">http://localhost:3001:</span>
         </p>
         <div className="py-4 px-3 rounded-md bg-dark_grey">
           <p className="text-sm text-black/60">
@@ -63,7 +63,7 @@ export const QuickStart = () => {
           <p className="text-sm text-black/60 mt-1">{"> next dev"}</p>
           <p className="text-sm text-black/60 mt-6">{"-Next.js 14.2.4"}</p>
           <p className="text-sm text-black/60 mt-1">
-            {"-Local: http://localhost:3000"}
+            {"-Local: http://localhost:3001"}
           </p>
         </div>
       </div>

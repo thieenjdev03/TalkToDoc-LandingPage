@@ -5,17 +5,14 @@ import Image from 'next/image';
 const Cook = () => {
 
     return (
-        <section className='relative' id="cook-section">
+        <section className='relative' id="about-section">
             <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
-                <div className='absolute right-0 bottom-[-18%] hidden lg:block'>
-                    <Image src='/images/Cook/burger.png' alt="burger-image" width={463} height={622} />
-                </div>
                 <div className='grid grid-cols-1 lg:grid-cols-12 my-16 space-x-5'>
                     <div className='col-span-6 flex justify-start'>
-                        <Image src="/images/Cook/cook.png" alt="nothing" width={636} height={808} />
+                        <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1742738453/aclayd9nuw5we0te9r5i.png" alt="nothing" width={636} height={808} />
                     </div>
                     <div className='col-span-6 flex flex-col justify-center'>
-                        <p className='text-primary text-lg font-normal mb-3 tracking-widest uppercase text-start'>Tư Vấn Với Chúng Tôi</p>
+                        <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase text-start'>Tư Vấn Với Chúng Tôi</p>
                         <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white text-start">
                             Vì sao bạn nên chọn TalkToDoc?
                         </h2>

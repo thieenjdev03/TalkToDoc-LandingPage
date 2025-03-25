@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#df6853",
+        primary: "#2563EB",
         grey: "#363636",
       },
       spacing: {

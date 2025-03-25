@@ -32,15 +32,15 @@ const Newsletter = () => {
                         </div>
                     </div>
                     <div className="col-span-5 relative hidden md:block">
-                        <div>
+                        {/* <div>
                             <Image src={'/images/Newsletter/soup.png'} alt="soup-image" width={400} height={400} className='-mt-24' />
-                        </div>
-                        <div className="absolute top-[78%]">
+                        </div> */}
+                        {/* <div className="absolute top-[78%]">
                             <Image src={'/images/Newsletter/onion.svg'} alt="onion-image" width={300} height={122} />
-                        </div>
-                        <div className="absolute top-[30%] right-[-23%] hidden lg:block">
+                        </div> */}
+                        {/* <div className="absolute top-[30%] right-[-23%] hidden lg:block">
                             <Image src={'/images/Newsletter/lec.png'} alt="lettuce-image" width={300} height={122} />
-                        </div>
+                        </div> */}
                         <div className="absolute bottom-[10%] left-[0%]">
                             <Image src={'/images/Newsletter/yellow.svg'} alt="yellow-image" width={59} height={59} />
                         </div>
