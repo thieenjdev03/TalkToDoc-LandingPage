@@ -41,7 +41,7 @@ const Signin = () => {
 
         toast.success("Đăng nhập thành công!");
         setLoading(false);
-        router.push("https://vlu-talk-to-doc.vercel.app/");
+        router.push("http://localhost:8080/");
       })
       .catch((err) => {
         console.log(err.message);

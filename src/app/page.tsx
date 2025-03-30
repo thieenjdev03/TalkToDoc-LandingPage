@@ -18,10 +18,9 @@ export default function Home() {
     <main>
       <Hero />
       <Features />
-      <Cook />
       <Expert />
       <Gallery />
-      <Newsletter />
+      <Cook />
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"

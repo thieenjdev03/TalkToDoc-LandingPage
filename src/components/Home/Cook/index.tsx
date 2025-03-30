@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Cook = () => {
 
     return (
-        <section className='relative' id="about-section">
+        <section className='relative bg-secondary' id="about-section">
             <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
                 <div className='grid grid-cols-1 lg:grid-cols-12 my-16 space-x-5'>
                     <div className='col-span-6 flex justify-start'>

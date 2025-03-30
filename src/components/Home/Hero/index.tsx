@@ -6,13 +6,13 @@ import Link from 'next/link';
 const Hero = () => {
 
     return (
-        <section id="home-section" className='bg-gray-50 dark:bg-gray-700'>
+        <section style={{ backgroundImage: 'url(https://doccure.dreamstechnologies.com/react/template/4268674dd279fd08bb06.png)', objectFit: 'cover', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }} id="home-section" className=''>
             <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 pt-20">
                 <div className='grid grid-cols-1 lg:grid-cols-12 items-center'>
                     <div className='col-span-6'>
                         <h1 className="text-4xl lg:text-6xl font-semibold mb-5 text-black dark:text-white md:4px lg:text-start text-center">
-                            Talk to a Doctor, 
-Anytime, Anywhere
+                            Talk to a Doctor,
+                            Anytime, Anywhere
                         </h1>
                         <p className='text-black/55 dark:text-white/50 lg:text-lg font-normal mb-10 lg:text-start text-center'>Nền tảng tư vấn y tế trực tuyến 24/7, kết nối bác sĩ và AI chăm sóc sức khỏe của bạn.</p>
                         <div className='md:flex align-middle justify-center lg:justify-start'>

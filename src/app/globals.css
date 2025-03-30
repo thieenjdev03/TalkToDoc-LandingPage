@@ -5,14 +5,18 @@
 html {
   scroll-behavior: smooth;
 }
-
+#home-section, #specialty-section, #process-section { 
+  height: 1000px;
+}
 header,
 section {
   @apply py-20;
 
-  padding-top: 7rem;
-  padding-bottom: 2rem;
-
+  .container { 
+    height: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px; 
+  }
   .logo-image {
     img {
       width: 100px;
@@ -157,4 +161,7 @@ section {
   .border-primary {
     border-color: #2563EB !important;
   }
+}
+.about-us-page{ 
+  margin-top: 6rem;
 }

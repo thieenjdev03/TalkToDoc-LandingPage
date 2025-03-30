@@ -12,7 +12,7 @@ const Footer: FC = () => {
           <div className="col-span-2">
             <Logo />
             <p className="text-xs font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70%">
-TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
+              TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
             </p>
             <div className="flex gap-6 items-center">
               <Link href="#" className="group bg-white hover:bg-primary rounded-full shadow-xl p-3">

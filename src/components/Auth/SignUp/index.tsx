@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import SocialSignUp from "../SocialSignUp";
 import Logo from "@/components/Layout/Header/Logo";
 import { useState } from "react";
@@ -10,32 +11,79 @@ const SignUp = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+const handleSubmit = async (e: any) => {
+  e.preventDefault();
+  setLoading(true);
 
-    setLoading(true);
-    const data = new FormData(e.currentTarget);
-    const value = Object.fromEntries(data.entries());
-    const finalData = { ...value };
+  const data = new FormData(e.currentTarget);
+  const value = Object.fromEntries(data.entries());
 
-    fetch("/api/register", {
+  try {
+    // Bước 1: Đăng ký tài khoản (lưu ý: backend nên trả về token sau khi đăng ký)
+    const registerRes = await fetch("http://localhost:3000/api/v1/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(finalData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Successfully registered");
-        setLoading(false);
-        router.push("/signin");
-      })
-      .catch((err) => {
-        toast.error(err.message);
-        setLoading(false);
-      });
-  };
+      body: JSON.stringify(value),
+    });
+
+    const registerData = await registerRes.json();
+
+    if (!registerRes.ok) {
+      throw new Error(registerData.message || "Đăng ký thất bại");
+    }
+
+    // // ✅ Lấy token từ response
+    // const token = registerData.access_token || registerData.token;
+    // if (!token) throw new Error("Không lấy được token sau khi đăng ký");
+
+    // Bước 2: Tạo patient (user) bằng token
+    const patientPayload = {
+      fullName: value.fullName,
+      username: value.username,
+      password: value.password,
+      email: value.email,
+      status: "isActive",
+      isActive: true,
+      avatarUrl: null,
+      phoneNumber: value.phoneNumber,
+      isVerified: true,
+      address: "Chưa cập nhật",
+      birthDate: value.birthDate || "1990-01-01",
+      gender: "female", // Có thể cho chọn trong form nếu muốn
+    };
+
+    const patientRes = await fetch("http://localhost:3000/api/v1/patients", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(patientPayload),
+    });
+
+    const patientData = await patientRes.json();
+    if (!patientRes.ok) {
+      throw new Error(patientData.message || "Tạo bệnh nhân thất bại");
+    }
+
+    await Swal.fire({
+      title: "Thành công",
+      text: "Đăng ký tài khoản thành công",
+      icon: "success",
+      confirmButtonText: "Đăng nhập ngay",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.push("http://localhost:8080/");
+      }
+    });
+  } catch (err: any) {
+    await Swal.fire("Lỗi", err.message, "error");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
