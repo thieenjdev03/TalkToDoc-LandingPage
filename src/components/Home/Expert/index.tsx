@@ -52,7 +52,7 @@ const Expert = () => {
                         <div key={i}>
                             <div className='m-3 py-14 my-10 text-center'>
                                 <div className="relative wrapper-image">
-                                    <Image src={items.imgSrc} alt="gaby" width={180} height={180} className="inline-block m-auto" />
+                                    <Image src={items.imgSrc} alt="gaby" width={1000} height={1000} className="inline-block m-auto" />
                                     <div className="absolute top-[50%] right-[2%] specialties-img">
                                         <Image src={items.imgSpecialty} alt="specialties" width={50} height={50} />
                                     </div>

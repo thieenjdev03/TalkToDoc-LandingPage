@@ -9,21 +9,29 @@
         }
 
         .picture-1 {
+            object-fit: cover;
+            object-position: left;
             border-radius: 8px;
             height: 380px;
+            max-width: 290px;
             width: 290px;
         }
 
         .picture-2 {
+            object-fit: cover;
             border-radius: 8px;
             height: 200px;
+            max-width: 290px;
             width: 290px;
         }
 
         .picture-3 {
+            object-fit: cover;
+            object-position: center;
             border-radius: 8px;
             height: 380px;
-            width: 290px;
+            max-width: 240px;
+            width: 240px;
         }
     }
 

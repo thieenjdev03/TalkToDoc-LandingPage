@@ -163,5 +163,11 @@ section {
   }
 }
 .about-us-page{ 
-  margin-top: 6rem;
+  .see-more-btn {
+    color: #2563EB;
+    &:hover {
+      color: white !important;
+    }
+  }
+  
 }

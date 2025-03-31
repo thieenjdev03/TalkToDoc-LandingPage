@@ -1,6 +1,10 @@
+"use client"
 import Image from "next/image";
 import "./styles.scss";
 import WhyChoseUsItem from "@/components/AboutUs/WhyChoseUsItem";
+import Testimonials from "@/components/Testimonials";
+import { motion } from 'framer-motion';
+import Breadcrumb from "@/components/Breadscum";
 export default function AboutUs() {
   const items = [
     {
@@ -22,25 +26,31 @@ export default function AboutUs() {
       image: "https://res.cloudinary.com/dut4zlbui/image/upload/v1743353836/z8luiffqvrhxkneonnca.svg",
       title: "Hệ thống quản lý thông minh:",
       description: "Giao diện thân thiện và hệ thống quản lý thông minh dễ dàng đặt lịch, theo dõi lịch sử tư vấn và quản lý hồ sơ sức khỏe chỉ với vài thao tác."
-    } 
+    }
   ]
   return (
-    <main className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md py-10 about-us-page">
-      <h1 className="text-3xl lg:text-4xl font-semibold text-center mb-8">
-        Về Chúng Tôi
-      </h1>
+    <>
+      <Breadcrumb title="Về Chúng Tôi" />
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md py-10 about-us-page"
+      >
 
-      <div className="grid gap-6">
         <section className="about-us-section">
-          <div className="image-gallery flex flex-col md:flex-row gap-4 items-center">
-            <div className="image-gallary-left flex flex-col gap-4">
-              <Image style={{ backgroundColor: "#f0f0f0" }} src="https://doccure.dreamstechnologies.com/react/template/5de17f17b6648e45f683.jpg" alt="about-us" width={290} height={380} className="picture-1" />
-              <Image style={{ backgroundColor: "#f0f0f0" }} src="https://doccure.dreamstechnologies.com/react/template/081db868a01ff2b11273.jpg" alt="about-us" width={290} height={200} className="picture-2" />
+          <div className="flex gap-10 items-center">
+            <div className="image-gallery flex flex-col md:flex-row gap-4 items-center">
+              <div className="image-gallary-left flex flex-col gap-4">
+                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433942/dispsho30t2b3q6ckflv.jpg" alt="about-us" width={1000} height={1000} className="picture-1" />
+                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433817/nxtv0xwv6yzpuqhrmtni.jpg" alt="about-us" width={1000} height={1000} className="picture-2" />
+              </div>
+              <div className="image-gallary-right">
+                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433538/sh5zkgwit4wlfkqkqsgd.jpg" alt="about-us" width={1000} height={1000} className="picture-3" />
+              </div>
             </div>
-            <div className="image-gallary-right">
-              <Image style={{ backgroundColor: "#f0f0f0" }} src="https://doccure.dreamstechnologies.com/react/template/5646226f781fd38ecd1b.jpg" alt="about-us" width={290} height={380} className="picture-3" />
-            </div>
-            <div className="about-us-content flex flex-col gap-1 w-2/5">
+            <div className="about-us-content flex flex-col gap-1">
               <h2 className="text-2xl font-semibold sub-title">Thông tin của Talk To Doc</h2>
               <p className="text-gray-600 main-title">
                 Talk to Doc – Kết nối bạn với bác sĩ mọi lúc, mọi nơi
@@ -64,13 +74,22 @@ export default function AboutUs() {
             <div className="why-chose-us-items flex flex-col md:flex-row gap-2 md:gap-4">
               {
                 items.map((item, index) => (
-                  <WhyChoseUsItem key={index} item={item} />
+                  <motion.div
+                    key={index}
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.2 }}
+                  >
+                    <WhyChoseUsItem item={item} />
+                  </motion.div>
                 ))
               }
             </div>
           </div>
+          <Testimonials />
         </section>
-      </div>
-    </main>
+      </motion.main>
+    </>
   )
 }
