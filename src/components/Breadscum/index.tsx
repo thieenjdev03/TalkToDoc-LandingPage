@@ -10,7 +10,7 @@ export default function Breadcrumb(props: { title: string }) {
                     padding: '40px 20px',
                     marginTop: '6rem'
                 }}
-                className="text-3xl lg:text-4xl font-semibold text-center mb-8"
+                className="lg:text-3xl text-center mb-8 text-[#012047] font-bold "
             >
                 {props.title}
             </div></>

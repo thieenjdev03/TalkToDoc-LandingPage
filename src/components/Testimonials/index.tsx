@@ -40,7 +40,7 @@ const testimonialsData = [
 export default function Testimonials() {
   return (
     <div
-      className="testimonials-container py-8 w-auto"
+      className="testimonials-container py-8 w-auto my-8"
       style={{
         backgroundImage: `url(${'https://res.cloudinary.com/dut4zlbui/image/upload/v1743434581/elhu6yeqtmwphy5jgwq7.png'})`,
         backgroundSize: "cover",

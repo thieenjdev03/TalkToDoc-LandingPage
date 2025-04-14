@@ -1,6 +1,11 @@
+"use client"
 import Image from "next/image";
 import './style.scss'
 import Breadcrumb from "@/components/Breadscum";
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 const contactData = {
     phone: "+84 1234567890",
     address: "123 Đường ABC, Quận 1, TP.HCM",
@@ -8,6 +13,8 @@ const contactData = {
 };
 
 export default function ContactUs() {
+    const MySwal = withReactContent(Swal);
+
     return (
         <>
             <Breadcrumb title="Liên Hệ Chúng Tôi" />
@@ -61,7 +68,64 @@ export default function ContactUs() {
                         </div>
                     </div>
                     <div className="contact-us-content-right">
-                        <form className="contact-us-form">
+                        <form 
+                        className="contact-us-form"
+                        onSubmit={async (e) => {
+                            e.preventDefault();
+                          
+                            const formData = new FormData(e.currentTarget);
+                            const value = Object.fromEntries(formData.entries());
+                          
+                            const formattedMessage = `📞 Số điện thoại: ${value.phoneNumber}
+                        💼 Dịch vụ quan tâm: ${value.service}
+                        📝 Nội dung: ${value.message}
+                        `;
+                          
+                            try {
+                              const res = await fetch("http://localhost:3000/contact", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                  name: value.name,
+                                  email: value.email,
+                                  message: formattedMessage,
+                                }),
+                              });
+                          
+                              if (!res.ok) {
+                                throw new Error("Không thể gửi liên hệ. Vui lòng thử lại sau.");
+                              }
+                          
+                              await MySwal.fire({
+                                title: '🎉 Gửi thành công!',
+                                text: 'Cảm ơn bạn đã liên hệ với TalkToDoc. Chúng tôi sẽ phản hồi sớm nhất có thể.',
+                                icon: 'success',
+                                confirmButtonText: 'Đóng',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false,
+                                customClass: {
+                                  popup: 'rounded-xl shadow-lg px-6 py-8',
+                                  title: 'text-xl font-semibold text-gray-800',
+                                  htmlContainer: 'text-sm text-gray-600',
+                                  confirmButton: 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none',
+                                },
+                                buttonsStyling: false,
+                              });
+                          
+                              e.target.reset();
+                          
+                            } catch (err: any) {
+                              await MySwal.fire({
+                                title: 'Lỗi',
+                                text: err.message || 'Có lỗi xảy ra. Vui lòng thử lại sau.',
+                                icon: 'error',
+                                confirmButtonText: 'Đóng',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false,
+                              });
+                            }
+                          }}
+                        >
                             <div className="contact-us-form-title"> Đặt câu hỏi bên dưới <i className="fa-solid fa-arrow-down"></i></div>
                             <div className="contact-us-form-group">
                                 <div className="flex gap-4">

@@ -5,85 +5,131 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import SocialSignUp from "../SocialSignUp";
 import Logo from "@/components/Layout/Header/Logo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "@/components/Common/Loader";
 const SignUp = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState('');
+  const [isOtpVerified, setIsOtpVerified] = useState(false);
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
+  const [otpCooldown, setOtpCooldown] = useState(0);
 
-const handleSubmit = async (e: any) => {
-  e.preventDefault();
-  setLoading(true);
-
-  const data = new FormData(e.currentTarget);
-  const value = Object.fromEntries(data.entries());
-
-  try {
-    // Bước 1: Đăng ký tài khoản (lưu ý: backend nên trả về token sau khi đăng ký)
-    const registerRes = await fetch("http://localhost:3000/api/v1/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(value),
-    });
-
-    const registerData = await registerRes.json();
-
-    if (!registerRes.ok) {
-      throw new Error(registerData.message || "Đăng ký thất bại");
+  useEffect(() => {
+    if (otpCooldown > 0) {
+      const timer = setTimeout(() => setOtpCooldown((prev) => prev - 1), 1000);
+      return () => clearTimeout(timer);
     }
+  }, [otpCooldown]);
 
-    // // ✅ Lấy token từ response
-    // const token = registerData.access_token || registerData.token;
-    // if (!token) throw new Error("Không lấy được token sau khi đăng ký");
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
 
-    // Bước 2: Tạo patient (user) bằng token
-    const patientPayload = {
-      fullName: value.fullName,
-      username: value.username,
-      password: value.password,
-      email: value.email,
-      status: "isActive",
-      isActive: true,
-      avatarUrl: null,
-      phoneNumber: value.phoneNumber,
-      isVerified: true,
-      address: "Chưa cập nhật",
-      birthDate: value.birthDate || "1990-01-01",
-      gender: "female", // Có thể cho chọn trong form nếu muốn
-    };
+    const formData = new FormData(e.currentTarget);
+    const value = Object.fromEntries(formData.entries());
+    const emailValue = email;
+    const otpValue = otp;
 
-    const patientRes = await fetch("http://localhost:3000/api/v1/patients", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(patientPayload),
-    });
+    try {
+      // BƯỚC 1: Xác minh OTP
+      const verifyRes = await fetch("http://localhost:3000/api/v1/otp/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailValue, otp: otpValue }),
+      });
 
-    const patientData = await patientRes.json();
-    if (!patientRes.ok) {
-      throw new Error(patientData.message || "Tạo bệnh nhân thất bại");
-    }
+      const verifyData = await verifyRes.json();
 
-    await Swal.fire({
-      title: "Thành công",
-      text: "Đăng ký tài khoản thành công",
-      icon: "success",
-      confirmButtonText: "Đăng nhập ngay",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        router.push("http://localhost:8080/");
+      if (!verifyRes.ok) {
+        await Swal.fire("Lỗi", verifyData.message || "OTP không hợp lệ", "error");
+        return;
       }
-    });
-  } catch (err: any) {
-    await Swal.fire("Lỗi", err.message, "error");
-  } finally {
-    setLoading(false);
-  }
-};
+
+      // BƯỚC 2: Chuẩn hóa data gửi tạo patient
+      const patientPayload = {
+        fullName: value.fullName,
+        username: value.username,
+        password: value.password,
+        email: value.email,
+        status: "isActive",
+        isActive: true,
+        avatarUrl: null,
+        phoneNumber: value.phoneNumber,
+        isVerified: true,
+        address: "Chưa cập nhật",
+        birthDate: value.birthDate || "1990-01-01",
+        gender: "female", // có thể mở rộng chọn
+      };
+
+      const registerRes = await fetch("http://localhost:3000/api/v1/patients", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patientPayload),
+      });
+
+      const registerData = await registerRes.json();
+
+      if (!registerRes.ok) {
+        await Swal.fire({
+          title: "Đăng ký thất bại",
+          text: registerData.message || "Vui lòng kiểm tra lại thông tin",
+          icon: "error",
+          confirmButtonText: "Thử lại",
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+        });
+        return;
+      }
+
+      await Swal.fire({
+        title: "Thành công",
+        text: "Đăng ký tài khoản thành công",
+        icon: "success",
+        confirmButtonText: "Đăng nhập ngay",
+        className: "swal2-popup-success__primary",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.push("http://localhost:8080/");
+        }
+      });
+    } catch (err: any) {
+      console.error(err);
+      await Swal.fire("Lỗi hệ thống", err.message || "Đã xảy ra lỗi", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSendOtp = async () => {
+    if (!email) {
+      toast.error("Vui lòng nhập email hợp lệ");
+      return;
+    }
+
+    try {
+      setIsSendingOtp(true);
+      const res = await fetch("http://localhost:3000/api/v1/otp/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        toast.success("OTP đã được gửi đến email!");
+        setOtpSent(true);
+        setOtpCooldown(60); // 60s timeout
+      } else {
+        toast.error("Không thể gửi OTP!");
+      }
+    } catch (err) {
+      toast.error("Có lỗi xảy ra khi gửi OTP");
+    } finally {
+      setIsSendingOtp(false);
+    }
+  };
 
   return (
     <>
@@ -110,12 +156,41 @@ const handleSubmit = async (e: any) => {
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
-        <div className="mb-[22px]">
+        <div className="flex gap-2 mb-4">
           <input
             type="email"
             placeholder="Email"
             name="email"
             required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setIsOtpVerified(false); // reset nếu thay đổi email
+            }}
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+          <button
+            type="button"
+            onClick={handleSendOtp}
+            disabled={isSendingOtp || otpCooldown > 0}
+            className={`px-2 py-1 text-nowrap text-sm rounded-md text-white transition ${otpCooldown > 0 || isSendingOtp
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+          >
+            {isSendingOtp
+              ? "Đang gửi..."
+              : otpCooldown > 0
+                ? `Gửi lại sau ${otpCooldown}s`
+                : "Gửi OTP"}
+          </button>
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="text"
+            placeholder="Nhập mã OTP"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
@@ -153,9 +228,14 @@ const handleSubmit = async (e: any) => {
           />
         </div>
         <div className="mb-9">
-           <button
+          <button
             type="submit"
-            className="flex w-full text-white items-center text-18 font-medium justify-center rounded-md bg-primary px-5 py-3 text-darkmode transition duration-300 ease-in-out hover:bg-transparent hover:text-white border-primary border "
+            disabled={loading}
+            className={`flex w-full text-white items-center text-18 font-medium justify-center rounded-md px-5 py-3 text-darkmode transition duration-300 ease-in-out border 
+    ${loading
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-primary hover:bg-transparent hover:text-white border-primary'
+              }`}
           >
             Đăng Ký {loading && <Loader />}
           </button>

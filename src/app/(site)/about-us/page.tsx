@@ -5,6 +5,7 @@ import WhyChoseUsItem from "@/components/AboutUs/WhyChoseUsItem";
 import Testimonials from "@/components/Testimonials";
 import { motion } from 'framer-motion';
 import Breadcrumb from "@/components/Breadscum";
+import DoctorList from "@/components/Doctor/DoctorList";
 export default function AboutUs() {
   const items = [
     {
@@ -42,8 +43,8 @@ export default function AboutUs() {
         <section className="about-us-section">
           <div className="flex gap-10 items-center">
             <div className="image-gallery flex flex-col md:flex-row gap-4 items-center">
-              <div className="image-gallary-left flex flex-col gap-4">
-                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433942/dispsho30t2b3q6ckflv.jpg" alt="about-us" width={1000} height={1000} className="picture-1" />
+              <div className="image-gallary-left flex flex-col gap-4 ">
+                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1744530750/shsnkjrh5mp1hmdmznhh.avif" alt="about-us" width={1000} height={1000} className="picture-1" />
                 <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433817/nxtv0xwv6yzpuqhrmtni.jpg" alt="about-us" width={1000} height={1000} className="picture-2" />
               </div>
               <div className="image-gallary-right">

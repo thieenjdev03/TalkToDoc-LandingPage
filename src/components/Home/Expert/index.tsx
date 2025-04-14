@@ -1,16 +1,28 @@
 "use client"
 import Slider from "react-slick";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ExpertData } from "@/app/api/data";
-
+import { ExpertData, getDoctor } from "@/app/api/data";
+import DoctorCard from "./DoctorCard";
+import Link from "next/link";
 const Expert = () => {
+    const [doctors, setDoctors] = useState([]);
+    const [selectedDoctor, setSelectedDoctor] = useState(null);
+    const [openModal, setOpenModal] = useState(false);
+
+    useEffect(() => {
+        const fetchDoctors = async () => {
+            const data = await getDoctor();
+            setDoctors(data);
+        };
+        fetchDoctors();
+    }, []);
     const settings = {
         dots: false,
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
@@ -41,28 +53,26 @@ const Expert = () => {
     return (
         <section className="bg-secondary">
             <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
-                <div className="text-center">
+                <div className="text-center flex justify-between flex-col mb-10">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>
-                    <h2 className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
-                        Danh Sách Bác Sĩ Hàng Đầu Tại Nền Tảng
+                    <h2 className="text-3xl lg:text-4xl font-semibold` text-black dark:text-white">
+                        Gặp Gỡ Bác Sĩ Hàng Đầu Của Chúng Tôi
                     </h2>
+
                 </div>
                 <Slider {...settings}>
-                    {ExpertData.map((items, i) => (
-                        <div key={i}>
-                            <div className='m-3 py-14 my-10 text-center'>
-                                <div className="relative wrapper-image">
-                                    <Image src={items.imgSrc} alt="gaby" width={1000} height={1000} className="inline-block m-auto" />
-                                    <div className="absolute top-[50%] right-[2%] specialties-img">
-                                        <Image src={items.imgSpecialty} alt="specialties" width={50} height={50} />
-                                    </div>
-                                </div>
-                                <h3 className='text-2xl font-semibold text-lightblack mt-2'>{items.name}</h3>
-                                <h4 className='text-lg font-normal text-lightblack pt-4 pb-2 opacity-50'>{items.profession}</h4>
-                            </div>
-                        </div>
-                    ))}
+                    {
+                        doctors.map((doctor: any, index: any) => (
+                            <DoctorCard key={index} doctor={doctor} />
+                        ))
+                    }
                 </Slider>
+                <Link
+                    href="/doctor-list"
+                    className="mt-10 hidden ml-auto mr-auto lg:block bg-primary w-[160px] text-center text-white hover:bg-secondary hover:text-white font-medium text-lg py-4 px-8 rounded-full "
+                >
+                    Xem tất cả
+                </Link>
             </div>
         </section>
     )

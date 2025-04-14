@@ -6,13 +6,12 @@ import Logo from "../Header/Logo";
 
 const Footer: FC = () => {
   return (
-    <footer className="pt-16 bg-darkmode">
+    <footer className="pt-16 bg-darkmode border-spacing-1">
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
         <div className="grid grid-cols-1 sm:grid-cols-5 lg:gap-20 md:gap-6 sm:gap-12 gap-6  pb-16">
           <div className="col-span-2">
             <Logo />
-            <p className="text-xs font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70%">
-              TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
+            <p className="text-md font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70% text-left">TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
             </p>
             <div className="flex gap-6 items-center">
               <Link href="#" className="group bg-white hover:bg-primary rounded-full shadow-xl p-3">
@@ -41,12 +40,12 @@ const Footer: FC = () => {
               </Link>
             </div>
           </div>
-          <div className="">
+          <div className="text-left">
             <h4 className="text-black dark:text-white mb-9 font-semibold text-xl">Về chúng tôi</h4>
-            <ul>
+            <ul className="align-left">
               <li className="pb-5">
                 <Link
-                  href="#"
+                  href="/about-us"
                   className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
                 >
                   Giới thiệu
@@ -54,15 +53,7 @@ const Footer: FC = () => {
               </li>
               <li className="pb-5">
                 <Link
-                  href="#"
-                  className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
-                >
-                  Tầm nhìn & Sứ mệnh
-                </Link>
-              </li>
-              <li className="pb-5">
-                <Link
-                  href="#"
+                  href="/doctor-list"
                   className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
                 >
                   Đội ngũ bác sĩ
@@ -70,44 +61,20 @@ const Footer: FC = () => {
               </li>
               <li className="pb-5">
                 <Link
-                  href="#"
+                  href="#process-section"
                   className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
                 >
-                  Đối tác y tế
-                </Link>
-              </li>
-              <li className="pb-5">
-                <Link
-                  href="#"
-                  className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
-                >
-                  Cách làm việc?
+                  Quy trình làm việc?
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="">
+          <div className="text-left">
             <h4 className="text-black dark:text-white mb-9 font-semibold text-xl">Hỗ trợ người dùng</h4>
             <ul>
               <li className="pb-5">
                 <Link
-                  href="#"
-                  className="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
-                >
-                  Câu hỏi thường gặp
-                </Link>
-              </li>
-              <li className="pb-5">
-                <Link
-                  href="#"
-                  className="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
-                >
-                  Hướng dẫn sử dụng
-                </Link>
-              </li>
-              <li className="pb-5">
-                <Link
-                  href="#"
+                  href="/privacy-policy"
                   className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
                 >
                   Chính sách bảo mật
@@ -115,7 +82,7 @@ const Footer: FC = () => {
               </li>
               <li className="pb-5">
                 <Link
-                  href="#"
+                  href="/privacy-policy#terms-of-service"
                   className="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
                 >
                   Điều khoản dịch vụ
@@ -132,7 +99,7 @@ const Footer: FC = () => {
               </li>
             </ul>
           </div>
-          <div className="">
+          <div className="text-left">
             <h4 className="text-black dark:text-white mb-9 font-semibold text-xl">Thêm</h4>
             <ul>
               {headerData.map((item, index) => (

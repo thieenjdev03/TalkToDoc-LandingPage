@@ -19,7 +19,7 @@ const Gallery = () => {
                 <div className="text-center">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>Quy Trình</p>
                     <h2 className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
-                        Quy Trình Tư Vấn Khám Dễ Dàng, Nhanh Chóng.
+                    Không xếp hàng, không chờ đợi – Khám bệnh chỉ với vài cú click
                     </h2>
                 </div>
                 <div className="my-16 px-6">

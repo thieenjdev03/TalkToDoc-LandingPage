@@ -132,17 +132,14 @@ const Header: React.FC = () => {
               <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
                 <div
                   ref={signUpRef}
-                  className="bg-white relative mx-auto w-full max-w-lg overflow-hidden rounded-lg bg-dark_grey bg-opacity-90 backdrop-blur-md px-8 pt-14 pb-8 text-center"
+                  className="bg-white relative mx-auto w-full max-w-xl overflow-hidden rounded-lg bg-dark_grey bg-opacity-90 backdrop-blur-md px-8 pt-14 pb-8 text-center"
                 >
                   <button
                     onClick={() => setIsSignUpOpen(false)}
-                    className="absolute top-0 right-0 mr-8 mt-8 dark:invert"
+                    className="absolute top-0 right-0 mr-8 mt-8 dark:invert bold text-2xl"
                     aria-label="Close Sign Up Modal"
                   >
-                    <Icon
-                      icon="tabler:currency-xrp"
-                      className="text-white hover:text-primary text-24 inline-block me-2"
-                    />
+                    x
                   </button>
                   <SignUp />
                 </div>

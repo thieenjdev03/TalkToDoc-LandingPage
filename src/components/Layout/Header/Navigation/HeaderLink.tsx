@@ -15,7 +15,6 @@ const HeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
   const handleMouseLeave = () => {
     setSubmenuOpen(false);
   };
-
   return (
     <div
       className="relative"
@@ -56,10 +55,8 @@ const HeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
             <Link
               key={index}
               href={subItem.href}
-              className={`block px-4 py-2   ${path === subItem.href
-                ? "bg-primary text-white"
-                : "text-black dark:text-white hover:bg-primary"
-                }`}
+              className={`block px-4 py-2 ${path === subItem.href ? "bg-primary text-white" : "text-black dark:text-white hover:bg-primary"}`}
+              onClick={() => setSubmenuOpen(false)} // Close submenu on click
             >
               {subItem.label}
             </Link>

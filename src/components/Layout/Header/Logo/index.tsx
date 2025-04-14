@@ -9,7 +9,7 @@ const Logo: React.FC = () => {
         src="https://res.cloudinary.com/dut4zlbui/image/upload/v1741615997/tuw1thbedrzcp17iv34p.png"
         alt="logo"
         width={120}
-        height={40}
+        height={60}
         style={{ width: 'auto', height: 'auto' }}
         quality={100}
       />
