@@ -255,7 +255,7 @@ const SignUp = () => {
 
       <p className="text-body-secondary text-black text-base">
         Đã có tài khoản?
-        <Link href="/" className="pl-2 text-primary hover:underline">
+        <Link href="http://localhost:8080/dashboard" className="pl-2 text-primary hover:underline">
           Đăng Nhập
         </Link>
       </p>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DoctorCardProps } from './DoctorCard';
 import { faComments, faHeart, faPhone, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 type Props = {
   open: boolean;
@@ -95,8 +96,8 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
               </div>
             )}
 
-            <p className="text-sm text-gray-600">Chức vụ: {doctor.rank?.name}</p>
             <p className="text-sm text-gray-600">Bệnh viện: {doctor.hospital?.name}</p>
+            <p className="text-sm text-gray-600">Chức vụ: {doctor.position}</p>
             <p className="text-sm text-gray-600">Địa điểm: {doctor.location}</p>
             <p className="text-sm text-gray-600">Kinh nghiệm: {doctor.experience} năm</p>
           </div>
@@ -104,11 +105,11 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
           {/* Right: Actions */}
           <div className="flex flex-col mt-4 md:mt-0 justify-end gap-4">
             <p className="text-lg text-gray-600">
-              Giá khám: {doctor.price?.toLocaleString('vi-VN')} VNĐ
+              Giá khám: {(doctor.price*1000)?.toLocaleString('vi-VN')} VNĐ
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
+            <Link href="http://localhost:8080/dashboard" className="bg-blue-600 hover:bg-blue-700 text-white text-center px-4 py-2 rounded text-sm">
               Đặt lịch hẹn
-            </button>
+            </Link>
 
             <div className="flex items-center gap-1 mt-1">
               <span className="text-yellow-500">⭐</span>

@@ -70,7 +70,7 @@ export default function AboutUs() {
               </div>
             </div>
           </div>
-          <div className="about-us-content-why-chose-us py-10 flex flex-col gap-8">
+          <div className="about-us-content-why-chose-us py-20 flex flex-col gap-8">
             <h2 className="text-2xl font-semibold sub-title text-center w-full ml-auto mr-auto">Tại sao chọn Talk To Doc?</h2>
             <div className="why-chose-us-items flex flex-col md:flex-row gap-2 md:gap-4">
               {

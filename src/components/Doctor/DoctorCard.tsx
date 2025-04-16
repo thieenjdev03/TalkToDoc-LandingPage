@@ -34,20 +34,6 @@ export default function DoctorCard({
   const formatPrice = (price: number) => {
     return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
   };
-  console.log('check props data:',
-    avatar,
-    name,
-    specialty,
-    location,
-    price,
-    rating,
-    reviews,
-    onClick,
-    hospital,
-    rank,
-    city,
-    experience,
-  );
   return (
     <div
       className="bg-white rounded-xl border shadow-sm hover:shadow-lg transition overflow-hidden group relative cursor-pointer"

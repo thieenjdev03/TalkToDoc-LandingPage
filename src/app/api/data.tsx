@@ -4,22 +4,22 @@ export const FeaturesData: {
   subheading: string;
 }[] = [
     {
-      imgSrc: 'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/66a0de26c9ecfecfb834962c_rash%201.svg',
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651244/lwsca4tavkfjzty0fv2x.svg',
       heading: "Tim mạch",
       subheading: "Tư vấn các bệnh lý huyết áp,tim mạch",
     },
     {
-      imgSrc: 'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/66a0de06fa0eae55f3570e1c_mental-health%201.svg',
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744728865/gvlddb84epi9w9qgeu9s.svg',
       heading: "Thần kinh",
       subheading: "Đau đầu, mất ngủ, rối loạn thần kinh",
     },
     {
-      imgSrc: 'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/6747f33e1e3d8a0d6358840b_weight-loss.png',
-      heading: "Dinh dưỡng & béo phì",
-      subheading: "Hướng dẫn chế độ ăn uống phù hợp",
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744728876/wy03m9benlitm9zvsesm.svg',
+      heading: "Sản phụ khoa",
+      subheading: "Tư vấn các bệnh lý sản phụ khoa",
     },
     {
-      imgSrc: 'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/66a0df77f6e2323d5bb9f652_bacteria%201.svg',
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651246/p4z4ubk2afjabsbzhucs.svg',
       heading: "Cơ Xương Khớp",
       subheading: "Vật lý trị liệu, đau vai gáy, đau cột sống",
     }
