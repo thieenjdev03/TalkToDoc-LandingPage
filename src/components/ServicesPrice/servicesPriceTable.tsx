@@ -28,10 +28,6 @@ const Pricing = () => {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">💼 Phí nền tảng</td>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">50.000đ (áp dụng cố định)</td>
-              </tr>
-              <tr>
                 <td className="border border-gray-300 px-4 py-2">🩺 Phí khám bác sĩ</td>
                 <td className="border border-gray-300 px-4 py-2">
                   <ul className="list-disc list-inside space-y-1">
@@ -43,12 +39,8 @@ const Pricing = () => {
                 </td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">👀 Hiển thị giá trước</td>
-                <td className="border border-gray-300 px-4 py-2">Người dùng sẽ được xem chi tiết giá trước khi thanh toán</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">⚙️ Tính linh hoạt</td>
-                <td className="border border-gray-300 px-4 py-2">Chọn bác sĩ theo nhu cầu và ngân sách cá nhân</td>
+                <td className="border border-gray-300 px-4 py-2">👀 Giá cả minh bạch</td>
+                <td className="border border-gray-300 px-4 py-2">Chi phí tư vấn khám công khai, minh bạch</td>
               </tr>
               <tr>
                 <td className="border border-gray-300 px-4 py-2">🎁 Mã khuyến mãi</td>

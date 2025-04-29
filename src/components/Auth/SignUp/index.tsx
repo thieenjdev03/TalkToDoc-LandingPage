@@ -147,11 +147,54 @@ const SignUp = () => {
       <h1 className="text-2xl text-primary">Đăng Ký</h1>
       <div className="mb-4 text-sm text-grey">Nhập thông tin tài khoản bên dưới: </div>
       <form onSubmit={handleSubmit}>
+      <div className="mb-[22px]">
+          <input
+            type="text"
+            placeholder="Họ và tên                                                       "
+            name="fullName"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
         <div className="mb-[22px]">
           <input
             type="text"
-            placeholder="Tài Khoản"
+            placeholder="Số điện thoại"
+            name="phoneNumber"
+            required
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="date"
+            name="Ngày Sinh"
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="text"
+            placeholder="Tài khoản đăng nhập *"
             name="username"
+            required
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+       
+        <div className="mb-[22px]">
+          <input
+            type="password"
+            placeholder="Mật Khẩu"
+            name="password"
+            required
+            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
+          />
+        </div>
+        <div className="mb-[22px]">
+          <input
+            type="password"
+            placeholder="Mật khẩu nhập lại"
+            name="password"
             required
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
@@ -175,55 +218,24 @@ const SignUp = () => {
             disabled={isSendingOtp || otpCooldown > 0}
             className={`px-2 py-1 text-nowrap text-sm rounded-md text-white transition ${otpCooldown > 0 || isSendingOtp
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-blue-600 hover:bg-blue-700'
+              : 'bg-black'
               }`}
           >
-            {isSendingOtp
+            Gửi
+            {/* {isSendingOtp
               ? "Đang gửi..."
               : otpCooldown > 0
                 ? `Gửi lại sau ${otpCooldown}s`
-                : "Gửi OTP"}
+                : "Gửi OTP"} */}
           </button>
         </div>
+        
         <div className="mb-[22px]">
           <input
             type="text"
             placeholder="Nhập mã OTP"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
-          />
-        </div>
-        <div className="mb-[22px]">
-          <input
-            type="password"
-            placeholder="Mật Khẩu"
-            name="password"
-            required
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
-          />
-        </div>
-        <div className="mb-[22px]">
-          <input
-            type="text"
-            placeholder="Tên Đầy đủ                                                        "
-            name="fullName"
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
-          />
-        </div>
-        <div className="mb-[22px]">
-          <input
-            type="text"
-            placeholder="Số điện thoại"
-            name="phoneNumber"
-            required
-            className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
-          />
-        </div>
-        <div className="mb-[22px]">
-          <input
-            type="date"
-            name="Ngày Sinh"
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
