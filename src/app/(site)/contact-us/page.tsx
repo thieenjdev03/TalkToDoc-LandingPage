@@ -112,7 +112,7 @@ export default function ContactUs() {
                                 buttonsStyling: false,
                               });
                           
-                              e.target.reset();
+                              (e.target as HTMLFormElement).reset();
                           
                             } catch (err: any) {
                               await MySwal.fire({
