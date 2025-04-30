@@ -9,7 +9,9 @@ const Cook = () => {
             <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
                 <div className='flex flex-col lg:flex-row my-16 space-x-5'>
                     <div className='flex justify-start'>
-                        <Image style={{ objectFit: 'cover' }} src="https://res.cloudinary.com/dut4zlbui/image/upload/v1744206007/g4rtf669er3mbanpfoay.png" alt="nothing" width={1200} height={1000} />
+                        <Image 
+                    unoptimized
+                    style={{ objectFit: 'cover' }} src="https://res.cloudinary.com/dut4zlbui/image/upload/v1744206007/g4rtf669er3mbanpfoay.png" alt="nothing" width={1200} height={1000} />
                     </div>
                     <div className='flex flex-col justify-center'>
                         <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase text-start'>Tư Vấn Với Chúng Tôi</p>

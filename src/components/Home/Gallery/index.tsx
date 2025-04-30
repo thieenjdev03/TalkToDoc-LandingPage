@@ -40,6 +40,7 @@ const Gallery = () => {
                             >
                                 <div className="step-image">
                                     <Image
+                                        unoptimized
                                         src={step.imgSrc}
                                         alt={`step${index + 1}`}
                                         width={100}

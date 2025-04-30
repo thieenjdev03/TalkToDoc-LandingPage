@@ -57,6 +57,7 @@ const ForgotPassword = () => {
               <div className="mb-10 text-center">
                 <Link href="/" className="mx-auto inline-block max-w-[160px]">
                   <Image
+                    unoptimized
                     src="/images/logo/logo.png"
                     alt="logo"
                     width={30}
@@ -64,6 +65,7 @@ const ForgotPassword = () => {
                     className="dark:hidden"
                   />
                   <Image
+                    unoptimized
                     src="/images/logo/logo-white.svg"
                     alt="logo"
                     width={140}

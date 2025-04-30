@@ -61,7 +61,9 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
           {/* Left: Avatar + Wish */}
           <div className="flex flex-col gap-2 items-center">
             <Image
+              fill
               src={doctor.avatar}
+              unoptimized
               alt={doctor.name}
               className="w-32 h-32 rounded-lg object-cover"
             />

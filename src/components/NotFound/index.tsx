@@ -10,6 +10,7 @@ const NotFound = () => {
           <div className="w-full px-4 md:w-5/12 lg:w-6/12">
             <div className="relative mx-auto aspect-[129/138] max-w-[357px] text-center">
               <Image
+                unoptimized
                 src="/images/404.svg"
                 alt="image"
                 width={0}
@@ -54,17 +55,17 @@ const NotFound = () => {
                 </svg>
               </div>
               <h3 className="mb-5 text-2xl font-semibold text-dark dark:text-white">
-                We Can&#39;t Seem to Find The Page You&#39;re Looking For.
+              Có vẻ như chúng tôi không thể tìm thấy trang bạn đang tìm kiếm.
               </h3>
               <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                Oops! The page you are looking for does not exist. It might have
-                been moved or deleted.
+                Oops!Trang bạn đang tìm kiếm không tồn tại. Có thể nó đã
+                bị di chuyển hoặc xóa.
               </p>
               <Link
                 href="/"
                 className="rounded-md px-7 py-3 text-base font-medium text-white transition hover:bg-blue-700 bg-primary"
               >
-                Go To Home
+                Về trang chủ
               </Link>
             </div>
           </div>

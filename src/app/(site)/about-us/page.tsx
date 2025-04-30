@@ -44,11 +44,17 @@ export default function AboutUs() {
           <div className="flex gap-10 items-center">
             <div className="image-gallery flex flex-col md:flex-row gap-4 items-center">
               <div className="image-gallary-left flex flex-col gap-4 ">
-                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1744530750/shsnkjrh5mp1hmdmznhh.avif" alt="about-us" width={1000} height={1000} className="picture-1" />
-                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433817/nxtv0xwv6yzpuqhrmtni.jpg" alt="about-us" width={1000} height={1000} className="picture-2" />
+                <Image 
+                unoptimized
+                src="https://res.cloudinary.com/dut4zlbui/image/upload/v1744530750/shsnkjrh5mp1hmdmznhh.avif" alt="about-us" width={1000} height={1000} className="picture-1" />
+                <Image 
+                unoptimized
+                src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433817/nxtv0xwv6yzpuqhrmtni.jpg" alt="about-us" width={1000} height={1000} className="picture-2" />
               </div>
               <div className="image-gallary-right">
-                <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433538/sh5zkgwit4wlfkqkqsgd.jpg" alt="about-us" width={1000} height={1000} className="picture-3" />
+                <Image 
+                unoptimized
+                src="https://res.cloudinary.com/dut4zlbui/image/upload/v1743433538/sh5zkgwit4wlfkqkqsgd.jpg" alt="about-us" width={1000} height={1000} className="picture-3" />
               </div>
             </div>
             <div className="about-us-content flex flex-col gap-1">

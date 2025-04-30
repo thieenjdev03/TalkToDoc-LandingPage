@@ -68,7 +68,8 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
       <div className="relative">
         <Image
           width={100}
-          height={100}  
+          height={100}
+          unoptimized
           src={doctor?.avatarUrl || ''}
           alt={doctor.fullName}
           className="w-full h-52 object-cover object-center"

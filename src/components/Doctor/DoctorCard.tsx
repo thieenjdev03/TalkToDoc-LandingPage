@@ -40,11 +40,11 @@ export default function DoctorCard({
       onClick={onClick}
     >
       <div className="relative w-full h-48 sm:h-52 md:h-56">
-        <Image 
-          width={100}
-          height={100}
-          src={avatar} 
-          alt={name} 
+        <Image
+          fill
+          src={avatar}
+          unoptimized
+          alt={name}
           className="object-cover w-full h-full" 
         />
         <div className="absolute top-2 right-2 bg-blue-600 text-white text-sm font-semibold px-2 py-1 rounded-md shadow">

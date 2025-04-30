@@ -1,21 +1,28 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
-const Logo: React.FC = (props) => {
-  const { width = 120, height = 60 } = props;
+interface LogoProps {
+  width?: number
+  height?: number
+}
 
+const Logo: React.FC<LogoProps> = ({ width = 120, height = 60 }) => {
   return (
-    <Link href="/" className='flex items-center text-black dark:text-white text-2xl font-semibold gap-4 logo-image'>
+    <Link 
+      href="/" 
+      className="flex items-center text-black dark:text-white text-2xl font-semibold gap-4 logo-image"
+    >
       <Image
-        src="https://res.cloudinary.com/dut4zlbui/image/upload/v1741615997/tuw1thbedrzcp17iv34p.png"
-        alt="logo"
+        unoptimized
+        src="/images/logo.png"
+        alt="TalkToDoc Logo"
         width={width}
         height={height}
-        style={{ width: 'auto', height: 'auto' }}
-        quality={100}
+        priority
+        className="w-auto h-auto"
       />
     </Link>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

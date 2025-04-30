@@ -21,7 +21,9 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className='col-span-6 flex justify-center relative'>
-                        <Image src="https://res.cloudinary.com/dut4zlbui/image/upload/v1742739624/klp4ifzgckkmhcxtyuab.png" alt="nothing" width={1000} height={805} />
+                        <Image 
+                        unoptimized
+                        src="https://res.cloudinary.com/dut4zlbui/image/upload/v1742739624/klp4ifzgckkmhcxtyuab.png" alt="nothing" width={1000} height={805} />
                     </div>
                 </div>
             </div>

@@ -50,7 +50,9 @@ const Features = () => {
                     {FeaturesData.map((items, i) => (
                         <div className='p-8 rounded-3xl bg-gradient-to-b work-item-wrapper' key={i}>
                             <div className='work-img-bg rounded-full flex justify-center'>
-                                <Image src={items?.imgSrc} alt={items?.imgSrc} width={80} height={80} />
+                                <Image 
+                                unoptimized
+                                src={items?.imgSrc} alt={items?.imgSrc} width={80} height={80} />
                             </div>
                             <h3 className='text-xl text-black dark:text-white font-semibold text-center mt-6'>{items.heading}</h3>
                             <p className='text-md font-normal text-black/50 dark:text-white/50 text-center mt-2'>{items.subheading}</p>

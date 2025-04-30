@@ -33,7 +33,9 @@ const Newsletter = () => {
                     </div>
                     <div className="col-span-5 relative hidden md:block">
                         <div>
-                            <Image src={'https://res.cloudinary.com/dut4zlbui/image/upload/v1742922826/hp91mv2b4bcxdw3m99e8.webp'} alt="soup-image" width={300} height={300} className='mt-14 ml-10' />
+                            <Image 
+                        unoptimized
+                        src={'https://res.cloudinary.com/dut4zlbui/image/upload/v1742922826/hp91mv2b4bcxdw3m99e8.webp'} alt="soup-image" width={300} height={300} className='mt-14 ml-10' />
                         </div>
                         {/* <div className="absolute top-[78%]">
                             <Image src={'/images/Newsletter/onion.svg'} alt="onion-image" width={300} height={122} />
@@ -42,10 +44,14 @@ const Newsletter = () => {
                             <Image src={'/images/Newsletter/lec.png'} alt="lettuce-image" width={300} height={122} />
                         </div> */}
                         <div className="absolute bottom-[10%] left-[0%]">
-                            <Image src={'/images/Newsletter/yellow.svg'} alt="yellow-image" width={59} height={59} />
+                            <Image 
+                            unoptimized
+                            src={'/images/Newsletter/yellow.svg'} alt="yellow-image" width={59} height={59} />
                         </div>
                         <div className="absolute bottom-[20%] right-[20%]">
-                            <Image src={'/images/Newsletter/blue.svg'} alt="blue-image" width={25} height={25} />
+                            <Image 
+                            unoptimized
+                            src={'/images/Newsletter/blue.svg'} alt="blue-image" width={25} height={25} />
                         </div>
                     </div>
 

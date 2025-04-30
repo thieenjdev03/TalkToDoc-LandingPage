@@ -68,6 +68,7 @@ export default function Testimonials() {
                   {testimonial.ranking}{" "}
                 </div>
                 <Image
+                unoptimized
                   src={
                     "https://res.cloudinary.com/dut4zlbui/image/upload/v1743437654/yvcegoiwrma8kpejzjjy.svg"
                   }
@@ -83,6 +84,7 @@ export default function Testimonials() {
               <div className="user-section flex gap-4 items-center">
                 <div className="user-avatar">
                   <Image
+                  unoptimized
                     src={testimonial.avatar}
                     alt="user"
                     width={80}
