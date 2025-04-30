@@ -12,8 +12,8 @@ export const ColorConfiguration = () => {
         </p>
         <div className="py-4 px-5 rounded-md bg-dark_grey mt-8">
           <p className="text-sm text-black/60 flex flex-col gap-2">
-            <span>primary: "#df6853",</span>
-            <span>grey: "#363636",</span>
+            <span>primary: &quot;#df6853&quot;,</span>
+            <span>grey: &quot;#363636&quot;,</span>
           </p>
         </div>
       </div>
@@ -27,7 +27,7 @@ export const ColorConfiguration = () => {
         </p>
         <div className="py-4 px-5 rounded-md bg-dark_grey mt-8">
           <p className="text-sm text-black/60 flex flex-col gap-2">
-            <span>primary: "#df6853",</span>
+            <span>primary: &quot;#df6853&quot;,</span>
           </p>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-type DoctorCardProps = {
+import Image from 'next/image';
+export type DoctorCardProps = {
+  _id: string;
   name: string;
   specialty: string;
   location: string;
@@ -13,10 +15,13 @@ type DoctorCardProps = {
   rank: any;
   city: any;
   experience: number;
+  profession: string;
+  position: string;
   handleOpen: () => void;
 };
 
 export default function DoctorCard({
+  _id,
   avatar,
   name,
   specialty,
@@ -25,12 +30,7 @@ export default function DoctorCard({
   rating,
   reviews,
   onClick,
-  hospital,
-  rank,
-  city,
-  experience,
-  handleOpen,
-}: DoctorCardProps) {
+}: any) {
   const formatPrice = (price: number) => {
     return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
   };
@@ -40,7 +40,13 @@ export default function DoctorCard({
       onClick={onClick}
     >
       <div className="relative w-full h-48 sm:h-52 md:h-56">
-        <img src={avatar} alt={name} className="object-cover w-full h-full" />
+        <Image 
+          width={100}
+          height={100}
+          src={avatar} 
+          alt={name} 
+          className="object-cover w-full h-full" 
+        />
         <div className="absolute top-2 right-2 bg-blue-600 text-white text-sm font-semibold px-2 py-1 rounded-md shadow">
           {formatPrice(price * 1000)}
         </div>

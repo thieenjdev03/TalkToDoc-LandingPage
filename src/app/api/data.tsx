@@ -58,8 +58,8 @@ export const ExpertData: {
       profession: 'Bác sĩ Sản phụ khoa',
       name: 'Ngô Bích Ngọc',
       imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1743333687/jl79iazp33ec8ct4lauh.png',
-      imgSpecialty: 'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/66a0de7f7e10aa1c41bd1066_menopause.svg'
-
+      imgSpecialty: 'https://cdn.prod.website-files.com/6655ee718cb90bc71fc20518/66a0de7f7e10aa1c41bd1066_menopause.svg',
+      hospital: 'Bệnh viện Đa khoa Hà Nội'
     },
     {
       profession: 'Bác sĩ Da liễu',

@@ -23,13 +23,13 @@ export default function RootLayout({
             enableSystem={true}
             defaultTheme="light"
           >
-            <script src="https://kit.fontawesome.com/0607d6f524.js" crossOrigin="anonymous"></script>
             <Header />
             {children}
             <Footer />
             <ScrollToTop />
           </ThemeProvider>
       </body>
+      <script src="https://kit.fontawesome.com/0607d6f524.js" crossOrigin="anonymous" async></script>
     </html>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import DoctorCard from './DoctorCard'
 import { getDoctor } from '@/app/api/data'
 import DoctorModal from './DoctorDetail'
@@ -6,6 +6,8 @@ import { DoctorCardProps } from '../Home/Expert/DoctorCard'
 
 function normalizeDoctor(doc: any): DoctorCardProps {
   return {
+    _id: doc._id,
+    fullName: doc.fullName || doc.name || 'Không rõ tên',
     name: doc.fullName || doc.name || 'Không rõ tên',
     specialty: Array.isArray(doc.specialty)
       ? doc.specialty.map((s: any) => s.name).join(', ')
@@ -64,22 +66,25 @@ export default function DoctorList() {
     console.log('filterSpecialty:', filterSpecialty)
     console.log('filterRank:', filterRank)
     console.log('doc.rank?.base_price:', doc.rank?.base_price)
-    const matchSpecialty = !filterSpecialty || doc.specialty.split(',').map((s: string) => s.trim()).includes(filterSpecialty)
-    const matchRank = !filterRank || doc.rank?.base_price == filterRank
+    const matchSpecialty = !filterSpecialty || doc?.specialty?.split(',').map((s: string) => s.trim()).includes(filterSpecialty)
+    const matchRank = !filterRank || doc?.rank?.base_price == filterRank
     return matchSpecialty && matchRank
   })
 
-  const doctorsBySpecialty: Record<string, DoctorCardProps[]> = {}
-  filteredDoctors.forEach((doc) => {
-    const specialties = doc.specialty.split(',').map(s => s.trim()) || []
-    specialties.forEach((s) => {
-      if (!doctorsBySpecialty[s]) doctorsBySpecialty[s] = []
-      doctorsBySpecialty[s].push({ ...doc, specialty: s })
+  const doctorsBySpecialty = useMemo(() => {
+    const result: Record<string, DoctorCardProps[]> = {}
+    filteredDoctors.forEach((doc) => {
+      const specialties = doc?.specialty?.split(',').map((s: string) => s.trim()) || []
+      specialties.forEach((s: string) => {
+        if (!result[s]) result[s] = []
+        result[s].push({ ...doc, specialty: s })
+      })
     })
-  })
+    return result
+  }, [filteredDoctors])
 
   const allSpecialties = Array.from(
-    new Set(doctors.flatMap((doc) => doc.specialty.split(',').map((s) => s.trim())))
+    new Set(doctors.flatMap((doc) => doc?.specialty?.split(',').map((s: string) => s.trim())))
   )
 
   const allRanks = Array.from(
@@ -123,7 +128,7 @@ export default function DoctorList() {
           <h2 className="text-xl font-bold mb-4 text-gray-700">Bác Sĩ Yêu Thích</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {favoriteDoctors.map((doc, idx) => (
-              <DoctorCard handleOpen={handleOpen} onClick={() => handleOpen(doc)} key={`favorite-${idx}`} {...doc} />
+              <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`favorite-${idx}`} {...doc} />
             ))}
           </div>
         </>
@@ -134,13 +139,13 @@ export default function DoctorList() {
           <h2 className="text-xl font-bold mb-4 text-gray-700">{specialty}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {doctorList.map((doc, idx) => (
-              <DoctorCard handleOpen={handleOpen} onClick={() => handleOpen(doc)} key={`${specialty}-${idx}`} {...doc} />
+              <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`${specialty}-${idx}`} {...doc} />
             ))}
           </div>
         </div>
       ))}
 
-      <DoctorModal open={openModal} doctor={selectedDoctor} onClose={handleClose} />
+      <DoctorModal open={openModal} doctor={selectedDoctor as any} onClose={handleClose} />
     </div>
   )
 }

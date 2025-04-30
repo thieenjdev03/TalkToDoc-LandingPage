@@ -3,6 +3,7 @@ import { DoctorCardProps } from './DoctorCard';
 import { faComments, faHeart, faPhone, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = {
   open: boolean;
@@ -11,7 +12,6 @@ type Props = {
 };
 
 export default function DoctorModal({ open, onClose, doctor }: Props) {
-  if (!open || !doctor) return null;
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -21,6 +21,8 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
     const exists = wishlist.some((d: any) => d.name === doctor.name);
     setIsFavorite(exists);
   }, [doctor]);
+
+  if (!open || !doctor) return null;
 
   const toggleWishlist = () => {
     if (!doctor) return;
@@ -58,7 +60,7 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
         <div className="flex flex-col md:flex-row gap-4 items-center">
           {/* Left: Avatar + Wish */}
           <div className="flex flex-col gap-2 items-center">
-            <img
+            <Image
               src={doctor.avatar}
               alt={doctor.name}
               className="w-32 h-32 rounded-lg object-cover"

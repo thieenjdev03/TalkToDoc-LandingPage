@@ -6,23 +6,28 @@ import {
   faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-
+import Image from 'next/image';
 export type DoctorCardProps = {
   _id: string;
+  name: string;
+  avatar: string;
+  reviews: number;
   avatarUrl?: string;
   fullName: string;
   rating: number;
-  specialty: string | { name: string }[]; // support both raw and formatted
+  specialty: any;
   isActive?: boolean;
   location?: string;
+  city?: string;
+  experience?: number;
+  profession?: string;
+  position?: string;
   duration?: string;
   price?: number;
   hospital?: {
     name: string;
   };
-  rank?: {
-    base_price: number;
-  };
+  rank?: any;
 };
 
 export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
@@ -61,8 +66,10 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden w-full max-w-sm border hover:shadow-lg transition h-[420px]">
       <div className="relative">
-        <img
-          src={doctor?.avatarUrl}
+        <Image
+          width={100}
+          height={100}  
+          src={doctor?.avatarUrl || ''}
           alt={doctor.fullName}
           className="w-full h-52 object-cover object-center"
         />

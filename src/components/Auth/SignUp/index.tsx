@@ -89,7 +89,9 @@ const SignUp = () => {
         text: "Đăng ký tài khoản thành công",
         icon: "success",
         confirmButtonText: "Đăng nhập ngay",
-        className: "swal2-popup-success__primary",
+        customClass: {
+          popup: "swal2-popup-success__primary",
+        },
       }).then((result) => {
         if (result.isConfirmed) {
           router.push("http://localhost:8080/");
@@ -256,13 +258,13 @@ const SignUp = () => {
 
       <p className="text-body-secondary mb-4 text-black text-base">
         Bạn có đồng ý với nội quy của chúng tôi sau khi tạo tại khoản chứ?{" "}
-        <a href="/#" className="text-primary hover:underline">
+        <Link href="/#" className="text-primary hover:underline">
           Nội Quy
-        </a>{" "}
+        </Link>{" "}
         và{" "}
-        <a href="/#" className="text-primary hover:underline">
+        <Link href="/#" className="text-primary hover:underline">
           Quy Định
-        </a>
+        </Link>
       </p>
 
       <p className="text-body-secondary text-black text-base">

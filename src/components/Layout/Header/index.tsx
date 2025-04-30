@@ -30,29 +30,30 @@ const Header: React.FC = () => {
     setSticky(window.scrollY >= 20);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      signInRef.current &&
-      !signInRef.current.contains(event.target as Node)
-    ) {
-      setIsSignInOpen(false);
-    }
-    if (
-      signUpRef.current &&
-      !signUpRef.current.contains(event.target as Node)
-    ) {
-      setIsSignUpOpen(false);
-    }
-    if (
-      mobileMenuRef.current &&
-      !mobileMenuRef.current.contains(event.target as Node) &&
-      navbarOpen
-    ) {
-      setNavbarOpen(false);
-    }
-  };
+ 
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        signInRef.current &&
+        !signInRef.current.contains(event.target as Node)
+      ) {
+        setIsSignInOpen(false);
+      }
+      if (
+        signUpRef.current &&
+        !signUpRef.current.contains(event.target as Node)
+      ) {
+        setIsSignUpOpen(false);
+      }
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        navbarOpen
+      ) {
+        setNavbarOpen(false);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
