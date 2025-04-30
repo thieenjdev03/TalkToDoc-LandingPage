@@ -35,7 +35,7 @@ const SignUp = () => {
 
     try {
       // BƯỚC 1: Xác minh OTP
-      const verifyRes = await fetch("http://localhost:3000/api/v1/otp/verify", {
+      const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/otp/verify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: emailValue, otp: otpValue }),
@@ -64,7 +64,7 @@ const SignUp = () => {
         gender: "female", // có thể mở rộng chọn
       };
 
-      const registerRes = await fetch("http://localhost:3000/api/v1/patients", {
+      const registerRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/patients`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(patientPayload),
@@ -111,7 +111,7 @@ const SignUp = () => {
 
     try {
       setIsSendingOtp(true);
-      const res = await fetch("http://localhost:3000/api/v1/otp/send", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/otp/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
