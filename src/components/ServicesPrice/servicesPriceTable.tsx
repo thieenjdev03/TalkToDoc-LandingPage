@@ -11,7 +11,7 @@ const Pricing = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        const active = data.filter((item) => item.isActive);
+        const active = data.filter((item: any) => item.isActive);
         setDoctorLevels(active);
       })
       .catch((err) => {
@@ -47,12 +47,12 @@ const Pricing = () => {
               </tr>
             </thead>
             <tbody>
-              {doctorLevels.map((level) => (
-                <tr key={level._id}>
-                  <td className="border border-gray-300 px-4 py-2">{level.name}</td>
-                  <td className="border border-gray-300 px-4 py-2">{level.description}</td>
+              {doctorLevels.map((level: any) => (
+                <tr key={level?._id}>
+                  <td className="border border-gray-300 px-4 py-2">{level?.name}</td>
+                  <td className="border border-gray-300 px-4 py-2">{level?.description}</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    {level.base_price?.toLocaleString("vi-VN")}đ
+                    {level?.base_price?.toLocaleString("vi-VN")}đ
                   </td>
                 </tr>
               ))}
