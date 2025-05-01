@@ -8,8 +8,8 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 const contactData = {
     phone: "+84 1234567890",
-    address: "123 Đường ABC, Quận 1, TP.HCM",
-    email: "contact@talktodoc.vn"
+    address: "69/68 Đặng Thùy Trâm, Phường 13, Quận Bình Thạnh",
+    email: "talktodoc.vlu@gmail.com"
 };
 
 export default function ContactUs() {

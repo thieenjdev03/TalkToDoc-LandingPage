@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Pricing = () => {
+  const [doctorLevels, setDoctorLevels] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.talktodoc.online/api/v1/doctor_levels", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const active = data.filter((item) => item.isActive);
+        setDoctorLevels(active);
+      })
+      .catch((err) => {
+        console.error("Lỗi khi lấy danh sách cấp bậc bác sĩ:", err);
+      });
+  }, []);
+
   return (
     <section className="relative z-10 overflow-hidden bg-white pb-12 pt-0">
       <div className="container mt-0 mx-auto lg:max-w-screen-xl md:max-w-screen-md">
@@ -18,36 +36,33 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Bảng giá theo cấp bậc */}
+        <div className="overflow-x-auto mb-10">
           <table className="min-w-full table-auto border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100 text-left">
-                <th className="border border-gray-300 px-4 py-2 w-1/2">Hạng mục</th>
-                <th className="border border-gray-300 px-4 py-2">Chi tiết</th>
+                <th className="border border-gray-300 px-4 py-2">Hạng bác sĩ</th>
+                <th className="border border-gray-300 px-4 py-2">Mô tả</th>
+                <th className="border border-gray-300 px-4 py-2">Chi phí / lần khám</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">🩺 Phí khám bác sĩ</td>
-                <td className="border border-gray-300 px-4 py-2">
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Bác sĩ hạng 4 (Thực tập): từ 100.000đ</li>
-                    <li>Bác sĩ hạng 3 (Cơ bản): từ 150.000đ</li>
-                    <li>Bác sĩ hạng 2 (Chuyên khoa): từ 200.000đ</li>
-                    <li>Bác sĩ hạng 1 (Chuyên gia): từ 300.000đ trở lên</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">👀 Giá cả minh bạch</td>
-                <td className="border border-gray-300 px-4 py-2">Chi phí tư vấn khám công khai, minh bạch</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">🎁 Mã khuyến mãi</td>
-                <td className="border border-gray-300 px-4 py-2">Có thể nhập mã để nhận ưu đãi trực tiếp</td>
-              </tr>
+              {doctorLevels.map((level) => (
+                <tr key={level._id}>
+                  <td className="border border-gray-300 px-4 py-2">{level.name}</td>
+                  <td className="border border-gray-300 px-4 py-2">{level.description}</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {level.base_price?.toLocaleString("vi-VN")}đ
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Bảng mô tả thêm */}
+        <div className="overflow-x-auto">
+        
 
           <div className="mt-6 text-center">
             <a

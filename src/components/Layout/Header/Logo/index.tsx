@@ -6,7 +6,7 @@ interface LogoProps {
   height?: number
 }
 
-const Logo: React.FC<LogoProps> = ({ width = 120, height = 60 }) => {
+const Logo: React.FC<LogoProps> = ({ width = 200, height = 100 }) => {
   return (
     <Link 
       href="/" 
@@ -14,12 +14,11 @@ const Logo: React.FC<LogoProps> = ({ width = 120, height = 60 }) => {
     >
       <Image
         unoptimized
-        src="/images/logo.png"
+        src="https://res.cloudinary.com/dut4zlbui/image/upload/v1746087113/r8fxpcrmefstk2jn90a3.png"
         alt="TalkToDoc Logo"
         width={width}
         height={height}
         priority
-        className="w-auto h-auto"
       />
     </Link>
   )

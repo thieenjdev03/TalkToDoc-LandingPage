@@ -39,7 +39,7 @@ export default function DoctorCard({
       className="bg-white rounded-xl border shadow-sm hover:shadow-lg transition overflow-hidden group relative cursor-pointer"
       onClick={onClick}
     >
-      <div className="relative w-full h-48 sm:h-52 md:h-56">
+      <div className="relative w-full h-48 sm:h-48 md:h-48">
         <Image
           fill
           src={avatar}

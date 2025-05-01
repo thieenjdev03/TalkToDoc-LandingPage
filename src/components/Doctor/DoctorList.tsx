@@ -36,9 +36,7 @@ export default function DoctorList() {
   useEffect(() => {
     const fetchDoctors = async () => {
       const data = await getDoctor()
-      console.log('check data:', data)
       const formatted = data.map(normalizeDoctor)
-      console.log('check formatted:', formatted)
       setDoctors(formatted)
     }
     fetchDoctors()
@@ -62,10 +60,6 @@ export default function DoctorList() {
   }
 
   const filteredDoctors = doctors.filter((doc) => {
-    console.log('doc:', doc)
-    console.log('filterSpecialty:', filterSpecialty)
-    console.log('filterRank:', filterRank)
-    console.log('doc.rank?.base_price:', doc.rank?.base_price)
     const matchSpecialty = !filterSpecialty || doc?.specialty?.split(',').map((s: string) => s.trim()).includes(filterSpecialty)
     const matchRank = !filterRank || doc?.rank?.base_price == filterRank
     return matchSpecialty && matchRank
@@ -90,11 +84,6 @@ export default function DoctorList() {
   const allRanks = Array.from(
     new Set(doctors.map((doc) => doc.rank?.base_price).filter(Boolean))
   )
-
-
-  useEffect(() => {
-    console.log('doctorsBySpecialty:', doctorsBySpecialty)
-  }, [doctorsBySpecialty])
 
   return (
     <div className="space-y-10">
@@ -123,7 +112,7 @@ export default function DoctorList() {
         </select>
       </div>
 
-      {favoriteDoctors.length > 0 && (
+      {!filterSpecialty && !filterRank && favoriteDoctors.length > 0 && (
         <>
           <h2 className="text-xl font-bold mb-4 text-gray-700">Bác Sĩ Yêu Thích</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -134,16 +123,27 @@ export default function DoctorList() {
         </>
       )}
 
-      {Object.entries(doctorsBySpecialty).map(([specialty, doctorList]) => (
-        <div key={specialty}>
-          <h2 className="text-xl font-bold mb-4 text-gray-700">{specialty}</h2>
+      {filterSpecialty ? (
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-gray-700">{filterSpecialty}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {doctorList.map((doc, idx) => (
-              <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`${specialty}-${idx}`} {...doc} />
+            {doctorsBySpecialty[filterSpecialty]?.map((doc, idx) => (
+              <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`${filterSpecialty}-${idx}`} {...doc} />
             ))}
           </div>
         </div>
-      ))}
+      ) : (
+        Object.entries(doctorsBySpecialty).map(([specialty, doctorList]) => (
+          <div key={specialty}>
+            <h2 className="text-xl font-bold mb-4 text-gray-700">{specialty}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {doctorList.map((doc, idx) => (
+                <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`${specialty}-${idx}`} {...doc} />
+              ))}
+            </div>
+          </div>
+        ))
+      )}
 
       <DoctorModal open={openModal} doctor={selectedDoctor as any} onClose={handleClose} />
     </div>

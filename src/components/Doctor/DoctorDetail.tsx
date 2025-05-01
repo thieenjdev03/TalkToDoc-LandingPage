@@ -61,18 +61,19 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
           {/* Left: Avatar + Wish */}
           <div className="flex flex-col gap-2 items-center">
             <Image
-              fill
               src={doctor.avatar}
               unoptimized
               alt={doctor.name}
-              className="w-32 h-32 rounded-lg object-cover"
+              className="w-32 h-32 rounded-lg object-cover object-center"
+              width={150}
+              height={150}
             />
             <div
               className={`add-wish-list-label px-3 py-1 rounded-lg flex items-center gap-1 cursor-pointer transition ${isFavorite ? 'bg-red-100' : 'bg-slate-200 hover:bg-red-100'
                 }`}
               onClick={toggleWishlist}
             >
-              <FontAwesomeIcon icon={faHeart} className={`${isFavorite ? 'text-red-600' : 'text-red-500'}`} />
+              <FontAwesomeIcon icon={faHeart} className={`${isFavorite ? 'text-red-600' : 'bg-slate-200'}`} />
               <span className="text-sm text-black">
                 {isFavorite ? 'Đã yêu thích' : 'Thêm vào yêu thích'}
               </span>

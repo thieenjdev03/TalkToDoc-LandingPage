@@ -10,7 +10,7 @@ const Footer: FC = () => {
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
         <div className="grid grid-cols-1 sm:grid-cols-5 lg:gap-20 md:gap-6 sm:gap-12 gap-6  pb-16">
           <div className="col-span-2">
-            <Logo width={200} height={60} />
+            <Logo />
             <p className="text-md font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70% text-left">TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
             </p>
             <div className="flex gap-6 items-center">

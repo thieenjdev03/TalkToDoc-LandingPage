@@ -72,7 +72,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
           unoptimized
           src={doctor?.avatarUrl || ''}
           alt={doctor.fullName}
-          className="w-full h-52 object-cover object-center"
+          className="w-full h-48 object-cover object-center"
         />
         <span className="absolute top-2 left-2 bg-primary text-white text-xs font-semibold p-1 rounded-md">
           <FontAwesomeIcon icon={faStar} className="mr-1" /> {doctor?.rating || 0}
@@ -93,18 +93,19 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
         <div>
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-bold text-gray-800">{doctor.fullName}</h3>
-            {doctor?.isActive && (
+            
+          </div>
+          <div className="flex items-center gap-2"> 
+          {doctor?.isActive && (
               <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
                 ● Trực tuyến
               </span>
             )}
           </div>
-
-          <div className="flex items-start flex-wrap text-sm text-gray-500 mt-2 gap-1 h-[60px]">
+          <div className="flex items-center flex-wrap text-sm text-gray-500 mt-2 gap-1 h-[60px]">
             <FontAwesomeIcon icon={faLocationDot} className="text-blue-500" />
             {doctor?.hospital?.name || 'Không rõ bệnh viện'}
-            <span className="mx-1">•</span>
-            {specialtyName}
+            <li className="mx-1">{specialtyName}</li>
           </div>
         </div>
 

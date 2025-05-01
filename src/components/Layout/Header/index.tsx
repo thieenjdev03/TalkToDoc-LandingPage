@@ -77,7 +77,10 @@ const Header: React.FC = () => {
     >
       <div className="lg:py-0 py-2">
         <div className=" mx-auto lg:max-w-screen-2xl md:max-w-screen-md flex items-center justify-between px-4">
-          <Logo />
+          <Logo
+            width={200}
+            height={60}
+          />
           <nav className="hidden lg:flex flex-grow items-center gap-8 justify-center">
             {headerData.map((item, index) => (
               <HeaderLink key={index} item={item} />

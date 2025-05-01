@@ -90,9 +90,9 @@ export default function PrivacyPolicy() {
 
           <Section title="11. Liên hệ">
             <ul className="list-disc pl-5 space-y-1">
-              <li>Email: support@talktodoc.vn</li>
+              <li>Email: talktodoc.vlu@gmail.com</li>
               <li>SĐT: 0909 999 999</li>
-              <li>Địa chỉ: 123 Nguyễn Văn A, Quận 1, TP. Hồ Chí Minh</li>
+              <li>Địa chỉ: 69/68 Đặng Thùy Trâm, Phường 13, Quận Bình Thạnh</li>
             </ul>
           </Section>
           <h1 className="text-3xl font-bold mb-6">Điều khoản sử dụng</h1>
