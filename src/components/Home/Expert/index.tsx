@@ -70,7 +70,7 @@ const Expert = () => {
 
     return (
         <section className="bg-secondary">
-            <div className='mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
+            <div className='mx-auto lg:max-w-screen-xl md:max-w-screen-md mt-auto mb-auto'>
                 <div className="text-center flex justify-between flex-col mb-10">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>
                     <h2 className="text-3xl lg:text-4xl font-semibold` text-black dark:text-white">
@@ -87,7 +87,7 @@ const Expert = () => {
                 </Slider>
                 <Link
                     href="/doctor-list"
-                    className="mt-10 hidden ml-auto mr-auto lg:block bg-primary w-[160px] text-center text-white hover:bg-secondary hover:text-white font-medium text-lg py-4 px-8 rounded-full "
+                    className="mt-10 block ml-auto mr-auto bg-primary w-[160px] text-center text-white hover:bg-secondary hover:text-white font-medium text-lg py-4 px-8 rounded-full "
                 >
                     Xem tất cả
                 </Link>

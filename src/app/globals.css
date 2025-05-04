@@ -30,7 +30,7 @@ html {
 }
 header,
 section {
-  padding: 0 16px;
+  padding: 32px 16px;
   @apply py-20;
   .button-primary{ 
     color: white ;
@@ -231,6 +231,6 @@ footer{
     margin-bottom: 20px !important;
   }
   section {
-    padding: 16px 16px;
+    padding: 32px 16px;
   }
 }
