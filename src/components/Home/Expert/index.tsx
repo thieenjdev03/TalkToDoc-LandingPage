@@ -62,7 +62,7 @@ const Expert = () => {
             {
                 breakpoint: 450,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                 }
             }
         ]

@@ -108,15 +108,15 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
 
         <div className="border-t border-gray-200 mt-3 sm:mt-4 pt-3 sm:pt-4 flex items-center justify-between">
           <div>
-            <p className="text-xs sm:text-sm text-gray-500 mb-1">Giá Tư Vấn:</p>
+            <p className="text-md lg:text-lg text-gray-500">Giá Tư Vấn:</p>
             <p className="text-base sm:text-lg font-bold text-red-600">
               {doctor?.rank?.base_price?.toLocaleString('vi-VN') || doctor?.price?.toLocaleString('vi-VN') || '---'}đ
             </p>
           </div>
-          <button className="text-xs sm:text-sm bg-blue-700 hover:bg-blue-800 text-white px-1 sm:px-4 py-1 sm:py-2 rounded-md flex items-center gap-1 sm:gap-2">
+          <button className="text-sm lg:text-md bg-blue-700 hover:bg-blue-800 text-white px-1 sm:px-4 py-1 sm:py-2 rounded-md flex items-center gap-1 sm:gap-2">
             <FontAwesomeIcon icon={faCalendarCheck} />
             <span className="hidden lg:inline">Đặt Lịch</span>
-            <span className="lg:hidden">Đặt</span>
+            <span className="lg:hidden">Đặt Lịch</span>
           </button>
         </div>
       </div>
