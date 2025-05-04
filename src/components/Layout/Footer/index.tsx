@@ -120,9 +120,19 @@ const Footer: FC = () => {
             @2025 - TalkToDoc. All Rights Reserved by TalkToDoc
           </p>
 
-          <div className="">
-            <Link href="#" className="text-sm text-black/70 dark:text-white/70 px-5 border-r border-grey/15 dark:border-white/15 hover:text-primary dark:hover:text-primary">Privacy policy</Link>
-            <Link href="#" className="text-sm text-black/70 dark:text-white/70 px-5 hover:text-primary dark:hover:text-primary">Terms & conditions</Link>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <Link 
+              href="#" 
+              className="text-sm text-black/70 dark:text-white/70 px-5 border-r border-grey/15 dark:border-white/15 hover:text-primary dark:hover:text-primary"
+            >
+              Chính sách bảo mật
+            </Link>
+            <Link 
+              href="#" 
+              className="text-sm text-black/70 dark:text-white/70 px-5 hover:text-primary dark:hover:text-primary"
+            >
+              Điều khoản và điều kiện
+            </Link>
           </div>
         </div>
       </div>

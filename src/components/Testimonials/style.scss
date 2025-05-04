@@ -1,5 +1,4 @@
 .testimonials-container {
-    padding: 60px 60px;
     background-image: url('https://res.cloudinary.com/dut4zlbui/image/upload/v1743434581/elhu6yeqtmwphy5jgwq7.png');
     background-size: cover;
     background-position: center;
@@ -10,13 +9,10 @@
     .testimonials-title {
         color: #012047;
         text-align: center;
-        font-size: 32px;
         font-style: normal;
         font-weight: 700;
         line-height: 38.4px;
-        /* 120% */
         display: flex;
-        height: 39px;
         flex-direction: column;
         justify-content: center;
         flex-shrink: 0;
@@ -26,9 +22,15 @@
         .testimonials-list {
             display: flex;
             flex-direction: row;
-            gap: 24px;
+            gap: 12px;
             width: 100%;
             justify-content: center;
+            flex-wrap: wrap;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                gap: 16px;
+            }
 
             .testimonials-item {
                 padding-top: 2rem;
@@ -42,21 +44,35 @@
                 border: 1px solid #E6E8EE;
                 background: #FFF;
                 width: 32%;
+
+                @media (max-width: 1024px) {
+                    width: 48%;
+                }
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+
                 .testimonials-item-ranking {
-                    // For stars
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: 19.2px;
                     margin-bottom: 8px;
                 }
+
                 .testimonials-item-title {
                     color: #012047;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: 19.2px;
+
+                    @media (max-width: 768px) {
+                        font-size: 14px;
+                    }
                 }
+
                 .testimonials-item-name {
                     display: flex;
                     height: 20px;
@@ -68,7 +84,10 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: 19.2px;
-                    /* 120% */
+
+                    @media (max-width: 768px) {
+                        font-size: 14px;
+                    }
                 }
 
                 .testimonials-item-description {
@@ -77,17 +96,25 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: 22.5px;
-                    /* 150% */
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     flex-shrink: 0;
+
+                    @media (max-width: 768px) {
+                        font-size: 14px;
+                        line-height: 21px;
+                    }
                 }
 
                 .user-section {
                     display: flex;
                     align-items: center;
                     gap: 1rem;
+
+                    @media (max-width: 768px) {
+                        gap: 0.75rem;
+                    }
 
                     .user-avatar {
                         img {
@@ -96,6 +123,11 @@
                             width: 40px;
                             height: 40px;
                             max-width: fit-content;
+
+                            @media (max-width: 768px) {
+                                width: 32px;
+                                height: 32px;
+                            }
                         }
                     }
 
@@ -111,6 +143,11 @@
                                 height: 21px;
                                 flex-direction: column;
                                 justify-content: center;
+
+                                @media (max-width: 768px) {
+                                    font-size: 16px;
+                                    line-height: 19.2px;
+                                }
                             }
                         }
 
@@ -126,7 +163,11 @@
                                 font-style: normal;
                                 font-weight: 400;
                                 line-height: 21px;
-                                /* 150% */
+
+                                @media (max-width: 768px) {
+                                    font-size: 12px;
+                                    line-height: 18px;
+                                }
                             }
                         }
                     }

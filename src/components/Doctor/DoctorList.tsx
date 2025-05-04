@@ -32,6 +32,7 @@ export default function DoctorList() {
   const [openModal, setOpenModal] = useState(false)
   const [filterSpecialty, setFilterSpecialty] = useState<string | null>(null)
   const [filterRank, setFilterRank] = useState<string | null>(null)
+  const [visibleDoctors, setVisibleDoctors] = useState(8)
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -46,7 +47,12 @@ export default function DoctorList() {
     const stored = localStorage.getItem('favorite_doctors')
     const parsed = stored ? JSON.parse(stored) : []
     const formatted = parsed.map(normalizeDoctor)
-    setFavoriteDoctors(formatted)
+    if(parsed && parsed.length > 0) { 
+      setFavoriteDoctors(formatted)
+    } else { 
+      setFavoriteDoctors([])
+    }
+
   }, [])
 
   const handleOpen = (doctor: DoctorCardProps) => {
@@ -57,6 +63,10 @@ export default function DoctorList() {
   const handleClose = () => {
     setSelectedDoctor(null)
     setOpenModal(false)
+  }
+
+  const handleLoadMore = () => {
+    setVisibleDoctors(prev => prev + 8)
   }
 
   const filteredDoctors = doctors.filter((doc) => {
@@ -115,7 +125,7 @@ export default function DoctorList() {
       {!filterSpecialty && !filterRank && favoriteDoctors.length > 0 && (
         <>
           <h2 className="text-xl font-bold mb-4 text-gray-700">Bác Sĩ Yêu Thích</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
             {favoriteDoctors.map((doc, idx) => (
               <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`favorite-${idx}`} {...doc} />
             ))}
@@ -126,21 +136,41 @@ export default function DoctorList() {
       {filterSpecialty ? (
         <div>
           <h2 className="text-xl font-bold mb-4 text-gray-700">{filterSpecialty}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {doctorsBySpecialty[filterSpecialty]?.map((doc, idx) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+            {doctorsBySpecialty[filterSpecialty]?.slice(0, visibleDoctors).map((doc, idx) => (
               <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`${filterSpecialty}-${idx}`} {...doc} />
             ))}
           </div>
+          {doctorsBySpecialty[filterSpecialty]?.length > visibleDoctors && (
+            <div className="text-center mt-8">
+              <button
+                onClick={handleLoadMore}
+                className="px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+              >
+                Xem thêm
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         Object.entries(doctorsBySpecialty).map(([specialty, doctorList]) => (
           <div key={specialty}>
             <h2 className="text-xl font-bold mb-4 text-gray-700">{specialty}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {doctorList.map((doc, idx) => (
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+              {doctorList.slice(0, visibleDoctors).map((doc, idx) => (
                 <DoctorCard handleOpen={() => handleOpen(doc)} onClick={() => handleOpen(doc)} key={`${specialty}-${idx}`} {...doc} />
               ))}
             </div>
+            {doctorList.length > visibleDoctors && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={handleLoadMore}
+                  className="px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+                >
+                  Xem thêm
+                </button>
+              </div>
+            )}
           </div>
         ))
       )}

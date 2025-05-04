@@ -40,16 +40,16 @@ const testimonialsData = [
 export default function Testimonials() {
   return (
     <div
-      className="testimonials-container py-8 w-auto my-20"
+      className="testimonials-container w-auto my-20 py-10 px-4 md:px-10 md:py-10"
       style={{
         backgroundImage: `url(${'https://res.cloudinary.com/dut4zlbui/image/upload/v1743434581/elhu6yeqtmwphy5jgwq7.png'})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "500px",
+        minHeight: "500px",
       }}
     >
-      <h1 className="testimonials-title">
+      <h1 className="testimonials-title text-center text-2xl sm:text-3xl">
         Hơn 1.500 Bệnh Nhân đã được chữa trị Trực Tuyến
       </h1>
       <div className="testimonials-content">

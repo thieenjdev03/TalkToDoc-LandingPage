@@ -76,7 +76,7 @@ const Header: React.FC = () => {
         }`}
     >
       <div className="lg:py-0 py-2">
-        <div className=" mx-auto lg:max-w-screen-2xl md:max-w-screen-md flex items-center justify-between px-4">
+        <div className=" mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between ">
           <Logo
             width={200}
             height={60}
@@ -86,13 +86,13 @@ const Header: React.FC = () => {
               <HeaderLink key={index} item={item} />
             ))}
           </nav>
-          <div className="flex items-center gap-4">
-            <Link href="#" className="text-lg font-medium hover:text-primary">
+          <div className="flex items-center gap-4 flex-row">
+            <Link href="#" className="text-sm sm:text-lg font-medium hover:text-primary">
               <Icon
                 icon="solar:phone-bold"
-                className="text-primary text-3xl inline-block me-2"
+                className="text-primary text-2xl sm:text-xl inline-block me-2"
               />
-              +84 123456789
+              0123456789
             </Link>
             <Link
               href="http://localhost:8080/"
@@ -128,6 +128,7 @@ const Header: React.FC = () => {
               className="hidden lg:block bg-primary text-white hover:bg-secondary hover:text-white font-medium text-lg py-4 px-8 rounded-full "
               onClick={() => {
                 setIsSignUpOpen(true);
+                setNavbarOpen(false);
               }}
             >
               Đăng Ký
@@ -151,7 +152,7 @@ const Header: React.FC = () => {
             )}
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
-              className="block lg:hidden p-2 rounded-lg"
+              className="block lg:hidden p-2 rounded-lg bg-primary"
               aria-label="Toggle mobile menu"
             >
               <span className="block w-6 h-0.5 bg-white"></span>
@@ -165,7 +166,7 @@ const Header: React.FC = () => {
         )}
         <div
           ref={mobileMenuRef}
-          className={`lg:hidden fixed top-0 right-0 h-full w-full bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${navbarOpen ? "translate-x-0" : "translate-x-full"
+          className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${navbarOpen ? "translate-x-0" : "translate-x-full"
             } z-50`}
         >
           <div className="flex items-center justify-between p-4">
@@ -186,14 +187,14 @@ const Header: React.FC = () => {
             ))}
             <div className="mt-4 flex flex-col space-y-4 w-full">
               <Link
-                href="#"
+                href="http://localhost:8080/"
                 className="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
                 onClick={() => {
                   setIsSignInOpen(true);
                   setNavbarOpen(false);
                 }}
               >
-                Sign In
+                Đăng Nhập
               </Link>
               <Link
                 href="#"
@@ -203,7 +204,7 @@ const Header: React.FC = () => {
                   setNavbarOpen(false);
                 }}
               >
-                Sign Up
+                Đăng Ký
               </Link>
             </div>
           </nav>

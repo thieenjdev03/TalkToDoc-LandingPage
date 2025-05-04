@@ -15,12 +15,16 @@ const Expert = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             const data = await getDoctor();
-            setDoctors(data);
+            if(data && data.length > 0) { 
+                setDoctors(data);
+            } else { 
+                setDoctors([]);
+            }
         };
         fetchDoctors();
     }, []);
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -28,23 +32,37 @@ const Expert = () => {
         autoplay: true,
         speed: 500,
         cssEase: "linear",
+        centerMode: true,
+        centerPadding: "60px",
         responsive: [
             {
-                breakpoint: 1200,
+                breakpoint: 1280,
                 settings: {
                     slidesToShow: 4,
                 }
             },
             {
-                breakpoint: 800,
+                breakpoint: 1200,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                 }
             },
             {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }, 
+            {
                 breakpoint: 450,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                 }
             }
         ]
@@ -52,7 +70,7 @@ const Expert = () => {
 
     return (
         <section className="bg-secondary">
-            <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
+            <div className='mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
                 <div className="text-center flex justify-between flex-col mb-10">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>
                     <h2 className="text-3xl lg:text-4xl font-semibold` text-black dark:text-white">
