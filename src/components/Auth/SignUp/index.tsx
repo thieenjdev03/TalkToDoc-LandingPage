@@ -123,6 +123,7 @@ const SignUp = () => {
         setOtpSent(true);
         setOtpCooldown(60); // 60s timeout
       } else {
+        Swal.fire("Lỗi", "Không thể gửi OTP!", "error");
         toast.error("Không thể gửi OTP!");
       }
     } catch (err) {
