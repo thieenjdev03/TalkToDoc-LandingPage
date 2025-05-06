@@ -97,7 +97,7 @@ export default function ContactUs() {
                               }
                           
                               await MySwal.fire({
-                                title: '🎉 Gửi thành công!',
+                                title: 'Gửi thành công!',
                                 text: 'Cảm ơn bạn đã liên hệ với TalkToDoc. Chúng tôi sẽ phản hồi sớm nhất có thể.',
                                 icon: 'success',
                                 confirmButtonText: 'Đóng',

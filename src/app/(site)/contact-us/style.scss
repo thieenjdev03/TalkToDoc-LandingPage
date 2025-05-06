@@ -1,4 +1,7 @@
 .contact-us-page {
+    .input {
+        @apply w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm;
+      }
     .contact-us-content {
         .contact-us-content-left {
             .sub-title {
@@ -76,6 +79,9 @@
                 background-color: #E2EDFF;
                 padding: 20px;
                 border-radius: 10px;
+                .select__control{
+                    border: 1px solid #E6E8EE;
+                }
                 .contact-us-form-title{
                     color: #012047;
                     font-size: 24px;
