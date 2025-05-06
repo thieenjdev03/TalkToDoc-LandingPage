@@ -7,4 +7,5 @@ export const headerData: HeaderItem[] = [
   { label: 'Về Chúng Tôi', href: '/about-us' },
   { label: 'Bác Sĩ', href: '/doctor-list' },
   { label: 'Liên Hệ', href: '/contact-us' },
+  { label: 'Tuyển Dụng', href: '/sign-up-doctor' },
 ]

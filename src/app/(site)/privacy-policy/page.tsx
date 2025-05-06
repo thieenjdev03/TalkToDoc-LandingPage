@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       <Breadcrumb title="Chính sách bảo mật" />
       <section className="privacy-policy-section pt-0">
         <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md py-10 px-4 space-y-6">
-          <h1 className="text-3xl font-bold mb-6">Chính sách bảo mật</h1>
+          <h1 className="text-3xl font-bold mb-6">- Chính sách bảo mật</h1>
 
           <p>
             TalkToDoc cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn. Chính sách này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu của bạn.
@@ -95,7 +95,23 @@ export default function PrivacyPolicy() {
               <li>Địa chỉ: 69/68 Đặng Thùy Trâm, Phường 13, Quận Bình Thạnh</li>
             </ul>
           </Section>
-          <h1 className="text-3xl font-bold mb-6">Điều khoản sử dụng</h1>
+          <h1 className="text-3xl font-bold">- Điều khoản đăng ký làm bác sĩ</h1>
+          <section id="terms-of-sign-up-doctor" className="terms-of-service-section pt-0 pb-0">
+            <p>
+              Khi đăng ký làm bác sĩ tại nền tảng TalkToDoc, bạn đồng ý tuân thủ các yêu cầu và quy định sau:
+            </p>
+            <ul className="list-disc pl-5 space-y-1 mt-2">
+              <li>Phải cung cấp thông tin chính xác bao gồm họ tên, chuyên môn, giấy phép hành nghề và kinh nghiệm làm việc.</li>
+              <li>Cam kết bảo mật thông tin bệnh nhân và tuân thủ quy định bảo mật dữ liệu cá nhân theo pháp luật Việt Nam.</li>
+              <li>Không được sử dụng nền tảng để đưa ra chẩn đoán hoặc kê toa không có căn cứ.</li>
+              <li>Phải phản hồi bệnh nhân trong thời gian hợp lý và chuyên nghiệp.</li>
+              <li>TalkToDoc có quyền xác minh thông tin bác sĩ, từ chối hoặc huỷ tư cách thành viên nếu có hành vi gian lận hoặc vi phạm đạo đức nghề nghiệp.</li>
+            </ul>
+            <p className="mt-2">
+              TalkToDoc luôn hoan nghênh các bác sĩ có chuyên môn, đạo đức và tinh thần phục vụ cộng đồng. Tham gia cùng chúng tôi để mang lại dịch vụ chăm sóc sức khỏe chất lượng, nhanh chóng và hiệu quả đến với mọi người dân.
+            </p>
+          </section>
+          <h1 className="text-3xl font-bold mb-6">- Điều khoản sử dụng</h1>
           <section id="terms-of-service" className="terms-of-service-section pt-0">
             <p>
               Khi sử dụng website và dịch vụ của TalkToDoc, bạn đồng ý tuân thủ các điều khoản sau đây. Vui lòng đọc kỹ trước khi sử dụng.
@@ -137,6 +153,7 @@ export default function PrivacyPolicy() {
               Chúng tôi có quyền cập nhật điều khoản mà không cần thông báo trước. Việc bạn tiếp tục sử dụng dịch vụ sau khi có thay đổi đồng nghĩa với việc bạn đồng ý với các điều khoản mới.
             </p>
           </section>
+         
         </div>
       </section>
     </>
