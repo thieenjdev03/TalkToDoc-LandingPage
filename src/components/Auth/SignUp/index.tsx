@@ -23,7 +23,6 @@ const SignUp = () => {
       return () => clearTimeout(timer);
     }
   }, [otpCooldown]);
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
@@ -94,7 +93,7 @@ const SignUp = () => {
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          router.push("http://localhost:8080/");
+          router.push("https://dashboard.talktodoc.online/");
         }
       });
     } catch (err: any) {
@@ -152,7 +151,7 @@ const SignUp = () => {
       <div className="mb-[22px]">
           <input
             type="text"
-            placeholder="Họ và tên                                                       "
+            placeholder="Họ và tên *"
             name="fullName"
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
@@ -160,7 +159,7 @@ const SignUp = () => {
         <div className="mb-[22px]">
           <input
             type="text"
-            placeholder="Số điện thoại"
+            placeholder="Số điện thoại *"
             name="phoneNumber"
             required
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
@@ -186,7 +185,7 @@ const SignUp = () => {
         <div className="mb-[22px]">
           <input
             type="password"
-            placeholder="Mật Khẩu"
+            placeholder="Mật Khẩu *"
             name="password"
             required
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
@@ -195,7 +194,7 @@ const SignUp = () => {
         <div className="mb-[22px]">
           <input
             type="password"
-            placeholder="Mật khẩu nhập lại"
+            placeholder="Mật khẩu nhập lại *"
             name="password"
             required
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
@@ -223,19 +222,18 @@ const SignUp = () => {
               : 'bg-black'
               }`}
           >
-            Gửi
-            {/* {isSendingOtp
+            {isSendingOtp
               ? "Đang gửi..."
               : otpCooldown > 0
                 ? `Gửi lại sau ${otpCooldown}s`
-                : "Gửi OTP"} */}
+                : "Gửi OTP"}
           </button>
         </div>
         
         <div className="mb-[22px]">
           <input
             type="text"
-            placeholder="Nhập mã OTP"
+            placeholder="Nhập mã OTP *"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
