@@ -65,7 +65,7 @@ const Signin = () => {
       </span> */}
       <h1 className="mb-4 text-2xl text-primary">Đăng Nhập</h1>
       <form onSubmit={(e) => e.preventDefault()}>
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="text"
             placeholder="Tên Đăng Nhập" 
@@ -75,7 +75,7 @@ const Signin = () => {
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="password"
             placeholder="Mật Khẩu"
