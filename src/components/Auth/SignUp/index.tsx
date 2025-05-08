@@ -7,6 +7,7 @@ import SocialSignUp from "../SocialSignUp";
 import Logo from "@/components/Layout/Header/Logo";
 import { useEffect, useState } from "react";
 import Loader from "@/components/Common/Loader";
+import axios from "axios";
 const SignUp = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -112,18 +113,18 @@ const SignUp = () => {
 
     try {
       setIsSendingOtp(true);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/otp/send`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/otp/send`,
+        { email },
+        { headers: { 'Content-Type': 'application/json' } }
+      )
 
-      if (res.ok) {
+      if (res.status === 200) {
         toast.success("OTP đã được gửi đến email!");
         setOtpSent(true);
         setOtpCooldown(60); // 60s timeout
       } else {
-        Swal.fire("Lỗi", res?.message, "error");
+        Swal.fire("Lỗi", (res as any)?.message, "error");
         toast.error("Không thể gửi OTP!");
       }
     } catch (err) {
