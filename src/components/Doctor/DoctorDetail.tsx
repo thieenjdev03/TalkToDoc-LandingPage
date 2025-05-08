@@ -116,7 +116,7 @@ export default function DoctorModal({ open, onClose, doctor }: Props) {
               Giá khám: {(doctor.price*1000)?.toLocaleString('vi-VN')} VNĐ
             </p>
             <Link 
-              href="http://localhost:8080/dashboard" 
+              href={process.env.NEXT_PUBLIC_DASHBOARD_URL || "/"} 
               className="bg-blue-600 hover:bg-blue-700 text-white text-center px-4 py-2 rounded text-sm w-full md:w-auto"
             >
               Đặt lịch hẹn

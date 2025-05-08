@@ -147,10 +147,10 @@ const SignUp = () => {
           OR
         </span>
       </span> */}
-      <h1 className="text-2xl text-primary">Đăng Ký</h1>
+      <h1 className="text-4xl text-primary font-bold mb-4">Đăng Ký</h1>
       <div className="mb-4 text-sm text-grey">Nhập thông tin tài khoản bên dưới: </div>
       <form onSubmit={handleSubmit}>
-      <div className="mb-[22px]">
+      <div className="mb-[12px]">
           <input
             type="text"
             placeholder="Họ và tên *"
@@ -158,7 +158,7 @@ const SignUp = () => {
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="text"
             placeholder="Số điện thoại *"
@@ -167,14 +167,14 @@ const SignUp = () => {
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="date"
             name="Ngày Sinh"
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="text"
             placeholder="Tài khoản đăng nhập *"
@@ -184,7 +184,7 @@ const SignUp = () => {
           />
         </div>
        
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="password"
             placeholder="Mật Khẩu *"
@@ -193,7 +193,7 @@ const SignUp = () => {
             className="w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-grey focus:border-primary focus-visible:shadow-none text-black dark:focus:border-primary"
           />
         </div>
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="password"
             placeholder="Mật khẩu nhập lại *"
@@ -232,7 +232,7 @@ const SignUp = () => {
           </button>
         </div>
         
-        <div className="mb-[22px]">
+        <div className="mb-[12px]">
           <input
             type="text"
             placeholder="Nhập mã OTP *"
@@ -256,20 +256,29 @@ const SignUp = () => {
         </div>
       </form>
 
-      <p className="text-body-secondary mb-4 text-black text-base">
-        Bạn có đồng ý với nội quy của chúng tôi sau khi tạo tại khoản chứ?{" "}
-        <Link href="/#" className="text-primary hover:underline">
-          Nội Quy
-        </Link>{" "}
-        và{" "}
-        <Link href="/#" className="text-primary hover:underline">
-          Quy Định
-        </Link>
-      </p>
+      <div className="flex items-start gap-2 mb-4 ">
+        <input
+          id=""
+          type="checkbox"
+          required
+          className="mt-1 accent-primary p-4"
+        />
+        <label htmlFor="" className="text-body-secondary text-black text-base">
+          Tôi đồng ý với{' '}
+          <Link href="/#" className="text-primary hover:underline">
+            Nội Quy
+          </Link>{' '}
+          và{' '}
+          <Link href="/#" className="text-primary hover:underline">
+            Quy Định
+          </Link>{' '}
+          của chúng tôi sau khi tạo tài khoản
+        </label>
+      </div>
 
       <p className="text-body-secondary text-black text-base">
         Đã có tài khoản?
-        <Link href="http://localhost:8080/dashboard" className="pl-2 text-primary hover:underline">
+        <Link href={process.env.NEXT_PUBLIC_DASHBOARD_URL || "/"} className="pl-2 text-primary hover:underline">
           Đăng Nhập
         </Link>
       </p>

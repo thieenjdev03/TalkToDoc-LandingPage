@@ -72,7 +72,11 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full transition-all duration-300 ${sticky ? " shadow-lg bg-white dark:bg-gray-600 py-4" : "shadow-none py-6"
+    style={{
+     backgroundColor: "#E3F0FF", 
+     boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)"
+    }}
+    className={`sticky top-0 z-40 w-full transition-all duration-300 ${sticky ? " shadow-lg bg-white dark:bg-gray-600 py-4" : "shadow-none py-6"
         }`}
     >
       <div className="lg:py-0 py-2">
@@ -95,7 +99,7 @@ const Header: React.FC = () => {
               0123456789
             </Link>
             <Link
-              href="http://localhost:8080/"
+              href={process.env.NEXT_PUBLIC_DASHBOARD_URL || "/"}
               className="hidden lg:block text-primary bg-secondary hover:text-white hover:bg-primary font-medium text-lg py-4 px-8 rounded-full"
               onClick={() => {
                 console.log("Đăng Nhập");
@@ -187,7 +191,7 @@ const Header: React.FC = () => {
             ))}
             <div className="mt-4 flex flex-col space-y-4 w-full">
               <Link
-                href="http://localhost:8080/"
+                href={process.env.NEXT_PUBLIC_DASHBOARD_URL || "/"}
                 className="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
                 onClick={() => {
                   setIsSignInOpen(true);

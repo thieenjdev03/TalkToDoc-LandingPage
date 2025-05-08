@@ -5,13 +5,13 @@ import Breadcrumb from "@/components/Breadscum";
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import { Metadata } from "next";
 
 const contactData = {
     phone: "+84 1234567890",
     address: "69/68 Đặng Thùy Trâm, Phường 13, Quận Bình Thạnh",
     email: "talktodoc.vlu@gmail.com"
 };
-
 export default function ContactUs() {
     const MySwal = withReactContent(Swal);
 

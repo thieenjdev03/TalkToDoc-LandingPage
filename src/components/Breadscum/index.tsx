@@ -8,7 +8,6 @@ export default function Breadcrumb(props: { title: string }) {
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                     padding: '40px 20px',
-                    marginTop: '6rem'
                 }}
                 className="lg:text-3xl text-center mb-8 text-[#012047] font-bold "
             >

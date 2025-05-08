@@ -41,7 +41,7 @@ const Signin = () => {
 
         toast.success("Đăng nhập thành công!");
         setLoading(false);
-        router.push("http://localhost:8080/");
+        router.push(process.env.NEXT_PUBLIC_DASHBOARD_URL || "/");
       })
       .catch((err) => {
         console.log(err.message);

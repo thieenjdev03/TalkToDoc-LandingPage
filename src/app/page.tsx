@@ -11,7 +11,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
 export const metadata: Metadata = {
-  title: "TalkToDoc",
+  title: "TalkToDoc - Trang Người Dùng",
 };
 
 export default function Home() {
