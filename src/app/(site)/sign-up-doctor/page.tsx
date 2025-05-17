@@ -141,7 +141,7 @@ export default function RegisterAsDoctor() {
                                 <input name="phoneNumber" placeholder="Số điện thoại" required className="input" />
                                 <input name="username" placeholder="Tài khoản đăng nhập" required className="input" />
                                 <input name="password" type="password" placeholder="Mật khẩu" required className="input" />
-
+                                <input name="password" type="_password" placeholder="Nhập lại Mật khẩu" required className="input" />
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
