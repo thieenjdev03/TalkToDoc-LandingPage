@@ -20,8 +20,8 @@ const Pricing = () => {
   }, []);
 
   return (
-    <section className="relative z-10 overflow-hidden bg-white pb-12 pt-0">
-      <div className="container mt-0 mx-auto lg:max-w-screen-xl md:max-w-screen-md">
+    <section className="relative z-10 overflow-hidden bg-white pb-12 pt-0 h-screen">
+      <div className="container mt-0 mx-auto lg:max-w-screen-xl md:max-w-screen-md flex flex-col items-center justify-center">
         <div className="-mx-4 flex flex-wrap mb-10">
           <div className="w-full px-4 text-center">
             <p className="text-primary text-lg font-normal mb-4 tracking-widest uppercase">

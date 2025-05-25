@@ -69,7 +69,7 @@ const Expert = () => {
     };
 
     return (
-        <section className="bg-secondary">
+        <section className="bg-secondary h-screen flex flex-col items-center justify-center">
             <div className='mx-auto lg:max-w-screen-xl md:max-w-screen-md mt-auto mb-auto'>
                 <div className="text-center flex justify-between flex-col mb-10">
                     <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>

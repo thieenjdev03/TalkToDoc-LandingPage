@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 const Cook = () => {
   return (
-    <section className='relative bg-secondary py-16 md:py-20' id="about-section">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className='relative bg-secondary py-16 md:py-20 h-screen ' id="about-section">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-row items-center justify-center">
         <div className='flex flex-col lg:flex-row gap-8 lg:gap-12 items-center'>
           <div className='w-full lg:w-1/2'>
             <div className='relative aspect-[4/3] w-full overflow-hidden rounded-lg'>

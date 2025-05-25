@@ -41,8 +41,10 @@ const Footer: FC = () => {
             </div>
           </div>
           <div className="text-left">
-            <h4 className="text-black dark:text-white mb-9 font-semibold text-xl">Về chúng tôi</h4>
-            <ul className="align-left">
+            <h4 className="text-black dark:text-white mb-9 font-semibold text-xl border-b-4 border-primary inline-block pb-1 px-2">
+              Về chúng tôi
+            </h4>
+            <ul className="list-disc list-inside marker:text-primary">
               <li className="pb-5">
                 <Link
                   href="/about-us"
@@ -70,8 +72,9 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className="text-left">
-            <h4 className="text-black dark:text-white mb-9 font-semibold text-xl">Hỗ trợ người dùng</h4>
-            <ul>
+            <h4 className="text-black dark:text-white mb-9 font-semibold text-xl border-b-4 border-primary inline-block pb-1 whitespace-nowrap">
+              Hỗ trợ người dùng</h4>
+            <ul className="list-disc list-inside marker:text-primary">
               <li className="pb-5">
                 <Link
                   href="/privacy-policy"
@@ -100,8 +103,9 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className="text-left">
-            <h4 className="text-black dark:text-white mb-9 font-semibold text-xl">Thêm</h4>
-            <ul>
+            <h4 className="text-black dark:text-white mb-9 font-semibold text-xl border-b-4 border-primary inline-block pb-1 px-2">
+              Xem Thêm</h4>
+            <ul className="list-disc list-inside marker:text-primary">
               {headerData.map((item, index) => (
                 <li key={index} className="pb-4">
                   <Link
@@ -121,14 +125,14 @@ const Footer: FC = () => {
           </p>
 
           <div className="flex flex-col md:flex-row items-center gap-4">
-            <Link 
-              href="#" 
+            <Link
+              href="#"
               className="text-sm text-black/70 dark:text-white/70 px-5 border-r border-grey/15 dark:border-white/15 hover:text-primary dark:hover:text-primary"
             >
               Chính sách bảo mật
             </Link>
-            <Link 
-              href="#" 
+            <Link
+              href="#"
               className="text-sm text-black/70 dark:text-white/70 px-5 hover:text-primary dark:hover:text-primary"
             >
               Điều khoản và điều kiện
