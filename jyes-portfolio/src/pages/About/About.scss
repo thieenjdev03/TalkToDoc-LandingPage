@@ -1,7 +1,24 @@
-.custom-div{
-    border: 2px solid #1890ff;
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: 4px 4px 2px #67b6ff;
+.custom-about-container {
+  color: white;
+  transition: background 0.5s ease;
+
+  /* Đảm bảo tất cả Typography của Ant Design đều có màu trắng */
+  .ant-typography,
+  .ant-typography * {
+    color: white !important;
+  }
 }
 
+.custom-div {
+  border: 2px solid #1890ff;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 15px;
+  color: white; /* Màu chữ trắng */
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  box-shadow: 4px 4px 2px #67b6ff;
+}
+
+.avatar-hover:hover {
+  transform: scale(1.05);
+}

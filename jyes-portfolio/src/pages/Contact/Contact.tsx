@@ -30,7 +30,8 @@ const Contact: React.FC = () => {
         style={{
           color: '#fff',
           textAlign: 'center',
-          textShadow: '2px 2px 6px rgba(0,0,0,0.8)',
+          textShadow:'2px 2px 5px #67b6ff'
+          
         }}
       >
         Thông tin liên hệ

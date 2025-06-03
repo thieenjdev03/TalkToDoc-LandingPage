@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Typography, Card, Button } from 'antd';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 const Home: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
@@ -23,54 +24,75 @@ const Home: React.FC = () => {
   return (
     <div
       style={{
-        maxWidth: 600,
+        maxWidth: 700,
         margin: '2rem auto',
-        textAlign: 'center',
-        backgroundColor: '#e6f0ff',
         padding: '2rem',
-        borderRadius: 8,
-        border: '2px solid #b3d1ff',
-        textShadow:'4px 4px 9px #002153',
-        boxShadow: '0 2px 8px #000000',
+        borderRadius: '12px',
+        background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+        color: '#ffffff',
       }}
     >
-      <Title level={2}>Chào mừng đến với Portfolio của Jye</Title>
-      <Paragraph>Đây là nơi mình trình bày các dự án cá nhân và kỹ năng.</Paragraph>
+      <Title level={2} style={{ color: '#ffffff', textAlign: 'center' }}>
+        👋 Chào mừng đến với Jye's Profile
+      </Title>
+      <Paragraph style={{ textAlign: 'center', fontSize: '16px', color: '#ffffff'}}>
+        Đây là nơi mình chia sẻ các dự án cá nhân, kỹ năng & con đường học tập phát triển.
+      </Paragraph>
 
-      <Card title="Các dự án của mình: " 
-      style={{ 
-        marginTop: 24, 
-        textAlign: 'center', 
-        border:'2px solid blue',
-        borderRadius: 8, 
-        boxShadow: '0 2px 6px rgba(0,0,0,0.1)' 
-     }}>
-        <ul style={{ textAlign: 'left' }}>
-          <li> <b>Dự án 1: </b> Website học React Typescript (Đang làm)</li>
-          <li><b>Dự án 2: </b> Ứng dụng theo dõi học tập (Đang làm)</li>
-          <li><b>Dự án 3: </b> Trang cá nhân portfolio</li>
+      <Card
+        title="🚀 Các dự án của mình"
+        bordered={false}
+        style={{
+          marginTop: 24,
+          borderRadius: '12px',
+          background: 'linear-gradient(135deg, #6fb1fc 0%, #a7d7c5 100%)',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+        }}
+      >
+        <ul style={{ paddingLeft: '1.2rem', lineHeight: 1.7 }}>
+          <li>
+            <Text strong>Dự án 1:</Text> Website học React TypeScript <Text type="secondary">(Đang làm)</Text>
+          </li>
+          <li>
+            <Text strong>Dự án 2:</Text> Ứng dụng theo dõi học tập <Text type="secondary">(Đang làm)</Text>
+          </li>
+          <li>
+            <Text strong>Dự án 3:</Text> Trang cá nhân portfolio <Text type="success">(Hoàn thành)</Text>
+          </li>
         </ul>
 
         <div
           ref={contentRef}
           style={{
             maxHeight,
-            textAlign: 'left' ,
+            opacity: expanded ? 1 : 0,
             overflow: 'hidden',
             transition: 'max-height 0.5s ease, opacity 0.5s ease',
-            opacity: expanded ? 1 : 0,
+            marginTop: '1rem',
           }}
         >
-          <p style={{ textAlign: 'center' }}><b>Chú ý: </b></p>
-          <p>Đây là portfolio của mình, để các bạn sắp thân, đang thân
-            và đã thân hiểu mình hơn nữa. Có gì thắc mắc về mình cứ hỏi thẳng và liên hệ trong phần contact nhé!</p>
+          <Paragraph style={{ marginBottom: '0.5rem', textAlign: 'center', fontWeight: 600 }}>
+            💡 Chú ý:
+          </Paragraph>
+          <Paragraph style={{ textAlign: 'justify' }}>
+            Đây là profile của mình dành cho bạn bè, người quen và cả những người chưa quen biết. Nếu bạn có điều gì
+            muốn hỏi thêm, đừng ngần ngại liên hệ ở phần <b>Contact</b> nhé!
+          </Paragraph>
         </div>
       </Card>
 
       <Button
         type="primary"
-        style={{ marginTop: 24, boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}
         onClick={handleToggle}
+        icon={expanded ? <UpOutlined /> : <DownOutlined />}
+        style={{
+          marginTop: 24,
+          backgroundColor: '#003a8c',
+          borderColor: '#0050b3',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+          transition: 'all 0.3s ease',
+        }}
       >
         {expanded ? 'Thu gọn' : 'Xem thêm'}
       </Button>

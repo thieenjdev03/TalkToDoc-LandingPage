@@ -5,7 +5,6 @@ import About from '../pages/About/About';
 import Contact from '../pages/Contact/Contact';
 import Education from '../pages/Education/Education';
 import Fun from '../pages/Fun/Fun';
-import Projects from '../pages/Projects/Projects';  // import thêm Projects
 
 const publicRoutes: RouteObject[] = [
   {
@@ -28,10 +27,6 @@ const publicRoutes: RouteObject[] = [
   {
     path: '/fun',
     element: <Fun />,
-  },
-  {
-    path: '/projects',
-    element: <Projects />,  // Thêm route /projects
   },
 ];
 

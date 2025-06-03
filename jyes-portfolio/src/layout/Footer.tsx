@@ -1,13 +1,15 @@
 import React from 'react';
+import { Layout } from 'antd';
+
+const { Footer: AntFooter } = Layout;
 
 const Footer: React.FC = () => {
   return (
-    <footer
+    <AntFooter
       style={{
         textAlign: 'center',
-        padding: '1rem 0',
-        backgroundColor: '#003366',  // xanh lam đậm
-        borderTop: '2px solid #0059b3', // viền trên màu xanh sáng hơn
+        backgroundColor: '#003366',
+        borderTop: '2px solid #0059b3',
         color: 'white',
         textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
         transition: 'color 0.3s ease',
@@ -20,8 +22,8 @@ const Footer: React.FC = () => {
         (e.currentTarget as HTMLElement).style.color = 'white';
       }}
     >
-      &copy; 2025 Jye&apos;s Portfolio. No copyright.
-    </footer>
+      &copy; 2025 Jye&apos;s Profile. No copyright.
+    </AntFooter>
   );
 };
 

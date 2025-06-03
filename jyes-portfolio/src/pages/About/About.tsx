@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Divider, Image } from 'antd';
+import { Typography, Image } from 'antd';
 import avatar from '../../assets/Pic1.jpg';
-import './About.scss'
+import './About.scss';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 function calculateAge(birthDate: Date) {
   const now = new Date();
@@ -39,101 +39,91 @@ const About: React.FC = () => {
     const interval = setInterval(() => {
       setAge(calculateAge(birthDate));
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
+
   return (
     <>
-      <style>
-        {`
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}
-      </style>
-
       <div
+        className="custom-about-container"
         style={{
           padding: '2rem',
-          maxWidth: 800,
-          margin: '0 auto',
-          borderRadius: '10px',
-          background: 'linear-gradient(135deg, #6fb1fc 0%, #a7d7c5 100%)',
-          border: '2px solid #002262',
-          animation: 'fadeInUp 1s ease',
-          boxShadow: '0 4px 10px #000000',
+          maxWidth: 900,
+          margin: '2rem auto',
+          borderRadius: '12px',
+          background: 'linear-gradient(135deg, #1e3c72 0%,#74a7ff 100%)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
         }}
       >
-        <Title
-          level={2}
-          style={{
-            textAlign: 'center',
-            color: ' #002262',
-            textShadow: '2px 2px 9px #00206b',
-            marginBottom: '1.5rem',
-            
-          }}
-        >
+        <Title level={2} style={{ textAlign: 'center', textShadow:'2px 2px 5px blue'}}>
           Giới thiệu bản thân
         </Title>
 
-        <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '1.5rem', }}>
           <Image
             src={avatar}
             alt="Ảnh bản thân"
-            width={250}
-            height={250}
-            style={{ borderRadius: '10%', border: '3px solid #003366' }}
+            width={220}
+            height={220}
+            style={{
+              borderRadius: '12px',
+              border: `3px solid white`,
+              objectFit: 'cover',
+              transition: 'transform 0.3s ease',
+            }}
             preview={false}
+            className="avatar-hover"
           />
         </div>
-        
-        <div className='custom-div'>
-          <Paragraph><b>Họ tên:</b> Nguyễn Việt Duy Khoa</Paragraph>
-          <Paragraph><b>Quốc tịch / dân tộc:</b> Việt Nam / Kinh</Paragraph>
-          <Paragraph><b>Quê quán:</b> Hóc Môn ,TP HCM, Việt Nam</Paragraph>
-          <Paragraph><b>Nơi sinh:</b> Bình Thạnh, TP HCM</Paragraph>
-          <Paragraph><b>Ngày sinh:</b> 9/9/2006</Paragraph>
-          <Paragraph>
-            <b>Tuổi:</b> {age.years} năm, {age.months} tháng, {age.weeks} tuần, {age.days} ngày, {age.hours} giờ, {age.minutes} phút, {age.seconds} giây
-          </Paragraph>
-          <Paragraph><b>Trạng thái hôn nhân:</b> Độc thân</Paragraph>
-        </div>
-        
-        <Divider />
-        
-        <div className='custom-div'>
-          <Paragraph><b>Học vấn:</b> 12/12 </Paragraph>
-          <Paragraph><b>Trình độ học vấn:</b> Đang học Đại học Văn Lang</Paragraph>
-          <Paragraph><b>Nghề nghiệp:</b> Sinh viên năm nhất, Ngành Công nghệ thông tin</Paragraph>
-          <Paragraph><b>Chuyên ngành, vị trí:</b> Kĩ sư phần mềm / Fullstack</Paragraph>
-          <Paragraph>
-            <b>Các kỹ năng chuyên ngành:</b> React, SCSS/CSS, TypeScript, Python, HTML, JavaScript.
-          </Paragraph>
-          <Paragraph>
-            <b>Kĩ năng mềm:</b> Teamwork, giao tiếp ổn, linh hoạt xữ lí tình huống
-          </Paragraph>
-        </div>
-        
-        <Divider />
 
-        <div className='custom-div'>
+        {/* Thông tin cá nhân */}
+        <div className="custom-div" >
+          <Title level={4}>Thông tin cá nhân</Title>
+          <Paragraph><Text strong>Họ tên:</Text> Nguyễn Việt Duy Khoa</Paragraph>
+          <Paragraph><Text strong>Quốc tịch / Dân tộc:</Text> Việt Nam / Kinh</Paragraph>
+          <Paragraph><Text strong>Quê quán:</Text> Hóc Môn, TP HCM</Paragraph>
+          <Paragraph><Text strong>Nơi sinh:</Text> Bình Thạnh, TP HCM</Paragraph>
+          <Paragraph><Text strong>Ngày sinh:</Text> 09/09/2006</Paragraph>
           <Paragraph>
-            <b>Nhắn nhủ:</b><br />
-            Mình là một lập trình viên mới nhú và mới vào ngành được một năm, mong các bạn qua portfolio này có thể hiểu mình hơn
+            <Text strong>Tuổi:</Text> {age.years} năm, {age.months} tháng, {age.weeks} tuần, {age.days} ngày, {age.hours} giờ, {age.minutes} phút, {age.seconds} giây
           </Paragraph>
-          <Paragraph><b>Màu sắc yêu thích:</b> Máu đỏ, da vàng</Paragraph>
-          
+          <Paragraph><Text strong>Trạng thái hôn nhân:</Text> Độc thân</Paragraph>
         </div>
 
+        {/* Học vấn */}
+        <div className="custom-div" style={{ color: 'white' }}>
+          <Title level={4}>Học vấn</Title>
+          <Paragraph ><Text strong>Học vấn:</Text> 12/12</Paragraph>
+          <Paragraph><Text strong>Đại học:</Text> Văn Lang - Công nghệ thông tin</Paragraph>
+          <Paragraph><Text strong>Năm học:</Text> Sinh viên năm nhất</Paragraph>
+        </div>
+
+        {/* Kỹ năng */}
+        <div className="custom-div">
+          <Title level={4}>Kỹ năng</Title>
+          <Paragraph>
+            <Text strong>Chuyên ngành / vị trí:</Text> Kĩ sư phần mềm / Fullstack Developer
+          </Paragraph>
+          <Paragraph>
+            <Text strong>Kỹ năng chuyên môn:</Text> React, TypeScript, SCSS, Python, HTML, JavaScript
+          </Paragraph>
+          <Paragraph>
+            <Text strong>Kỹ năng mềm:</Text> Làm việc nhóm, giao tiếp, xử lý tình huống linh hoạt
+          </Paragraph>
+        </div>
+
+        {/* Nhắn nhủ */}
+        <div className="custom-div">
+          <Title level={4}>Nhắn nhủ</Title>
+          <Paragraph>
+            Mình là một lập trình viên mới vào nghề, đam mê và ham học hỏi.
+            Đây là nơi mình chia sẻ những gì mình đã học và đang phát triển.
+          </Paragraph>
+          <Paragraph>
+            <Text strong>Màu sắc yêu thích:</Text> Máu đỏ, da vàng 🇻🇳
+          </Paragraph>
+        </div>
       </div>
     </>
   );
