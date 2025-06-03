@@ -1,0 +1,54 @@
+/* Navbar.scss */
+
+/* Tiêu đề navbar: hiệu ứng khi hover và font nổi bật */
+.navbar-title-link {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.15);
+    text-shadow: 2px 2px 2px #66ccff;
+  }
+}
+
+/* Menu item: viền, bóng, màu chữ */
+.custom-navbar-menu {
+  .ant-menu-item {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff !important;
+    box-shadow:
+      1px 1px 3px #9085ff;
+    padding: 0 16px;
+    margin: 10px; // ✅ Margin đều 4 phía
+    border: 1.5px solid #ffffff;
+  
+    
+
+    &:hover {
+      background-color: #004dc0 !important;
+      color: #ffffff !important;
+      box-shadow:
+        0 0 8px #3399ff,
+        inset 0 0 8px #66ccff;
+      cursor: pointer;
+    }
+
+    &.ant-menu-item-selected {
+      background-color: #004c9e !important;
+      color: #ffffff !important;
+      box-shadow:
+        0 0 10px #3399ff;
+      font-weight: bolder;
+      transform:scale(1.05);
+      border-radius: 10px;
+    }
+
+    > a {
+      color: inherit !important;
+    }
+  }
+}
