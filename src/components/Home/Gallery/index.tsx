@@ -14,11 +14,11 @@ const Gallery = () => {
   }, [])
 
   return (
-    <section  id="process-section" className=' h-screen'>
+    <section  id="process-section" className='min-h-screen flex flex-col items-center justify-center'>
       <div className='container py-auto mx-auto lg:max-w-screen-xl md:max-w-screen-md flex flex-col items-center justify-center' id='gallery-section'>
         <div className="text-center">
-          <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>Quy Trình</p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
+          <p className='text-primary text-2xl font-semibold mb-4 tracking-widest uppercase'>Quy Trình</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white">
             Không xếp hàng, không chờ đợi – Khám bệnh chỉ với vài cú click
           </h2>
         </div>

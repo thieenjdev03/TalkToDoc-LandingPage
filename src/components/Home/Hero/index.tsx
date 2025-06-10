@@ -22,7 +22,7 @@ const Hero = () => {
               Talk to a Doctor,
               Anytime, Anywhere
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-black/55 dark:text-white/50 font-normal mb-8 sm:mb-10 text-center lg:text-left">
+            <p className="text-base sm:text-xl lg:text-2xl text-black/55 dark:text-white/50 font-normal mb-8 sm:mb-10 text-center lg:text-left">
               Nền tảng tư vấn y tế trực tuyến 24/7, kết nối bác sĩ và AI chăm sóc sức khỏe của bạn.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

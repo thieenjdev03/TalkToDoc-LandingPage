@@ -12,9 +12,9 @@ html {
 #process-section {
   min-height: 100vh;
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     min-height: 100%;
-  }
+  } */
 }
 
 #specialty-section {
@@ -28,18 +28,8 @@ html {
   }
 }
 
-#home-section {
-  .container {
-    @media (max-width: 768px) {
-      margin-top: 100px !important;
-    }
-  }
-}
-
 header,
 section {
-  padding: 32px 16px;
-  @apply py-20;
 
   .button-primary {
     color: white;
@@ -264,7 +254,5 @@ footer {
     margin-bottom: 20px !important;
   }
 
-  section {
-    padding: 32px 16px;
-  }
+  section {}
 }

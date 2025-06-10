@@ -37,7 +37,7 @@ interface DoctorPayload extends BasePayload {
   rank?: string
 }
 
-const SignUp = () => {
+const SignUp = ({ setIsSignUpOpen }: { setIsSignUpOpen: (isOpen: boolean) => void }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -51,10 +51,11 @@ const SignUp = () => {
       </div>
 
       {selectedType === null ? (
-        <SwitchSignUpType onSelectType={setSelectedType} />
+        <SwitchSignUpType setIsSignUpOpen={setIsSignUpOpen} onSelectType={setSelectedType} />
       ) : (
         <>
           <SignUpForm
+            setIsSignUpOpen={setIsSignUpOpen}
             type={selectedType}
             email={email}
             setEmail={setEmail}

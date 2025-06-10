@@ -8,12 +8,12 @@ const Footer: FC = () => {
   return (
     <footer className="pt-16 bg-darkmode border-spacing-1">
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-5 lg:gap-20 md:gap-6 sm:gap-12 gap-6  pb-16">
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-12 lg:gap-20 pb-16">
+          <div className="col-span-1 lg:col-span-2 flex flex-col items-center sm:items-start text-center sm:text-left">
             <Logo />
-            <p className="text-md font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70% text-left">TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
+            <p className="text-md font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70% text-center sm:text-left">TalkToDoc – Kết nối sức khỏe thông minh. Tư vấn y khoa trực tuyến, chăm sóc sức khỏe mọi lúc, mọi nơi.
             </p>
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-6 items-center justify-center sm:justify-start">
               <Link href="#" className="group bg-white hover:bg-primary rounded-full shadow-xl p-3">
                 <Icon
                   icon="fa6-brands:facebook-f"
@@ -40,7 +40,7 @@ const Footer: FC = () => {
               </Link>
             </div>
           </div>
-          <div className="text-left">
+          <div className="text-center sm:text-left mt-8 sm:mt-0">
             <h4 className="text-black dark:text-white mb-9 font-semibold text-xl border-b-4 border-primary inline-block pb-1 px-2">
               Về chúng tôi
             </h4>
@@ -71,7 +71,7 @@ const Footer: FC = () => {
               </li>
             </ul>
           </div>
-          <div className="text-left">
+          <div className="text-center sm:text-left mt-8 sm:mt-0">
             <h4 className="text-black dark:text-white mb-9 font-semibold text-xl border-b-4 border-primary inline-block pb-1 whitespace-nowrap">
               Hỗ trợ người dùng</h4>
             <ul className="list-disc list-inside marker:text-primary">
@@ -102,7 +102,7 @@ const Footer: FC = () => {
               </li>
             </ul>
           </div>
-          <div className="text-left">
+          <div className="text-center sm:text-left mt-8 sm:mt-0">
             <h4 className="text-black dark:text-white mb-9 font-semibold text-xl border-b-4 border-primary inline-block pb-1 px-2">
               Xem Thêm</h4>
             <ul className="list-disc list-inside marker:text-primary">
@@ -119,11 +119,10 @@ const Footer: FC = () => {
             </ul>
           </div>
         </div>
-        <div className="border-t border-grey/15 dark:border-white/15 py-10 flex justify-between items-center">
-          <p className="text-sm text-black/70 dark:text-white/70">
+        <div className="border-t border-grey/15 dark:border-white/15 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-black/70 dark:text-white/70 text-center md:text-left">
             @2025 - TalkToDoc. All Rights Reserved by TalkToDoc
           </p>
-
           <div className="flex flex-col md:flex-row items-center gap-4">
             <Link
               href="#"

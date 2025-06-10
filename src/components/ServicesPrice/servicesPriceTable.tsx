@@ -24,7 +24,7 @@ const Pricing = () => {
       <div className="container mt-0 mx-auto lg:max-w-screen-xl md:max-w-screen-md flex flex-col items-center justify-center">
         <div className="-mx-4 flex flex-wrap mb-10">
           <div className="w-full px-4 text-center">
-            <p className="text-primary text-lg font-normal mb-4 tracking-widest uppercase">
+            <p className="text-primary text-2xl font-semibold mb-4 tracking-widest uppercase">
               Chi phí tư vấn
             </p>
             <h2 className="mb-3 text-3xl font-bold leading-[1.208] text-dark sm:text-4xl md:text-[40px]">

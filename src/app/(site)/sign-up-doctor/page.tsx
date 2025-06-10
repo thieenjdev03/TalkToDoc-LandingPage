@@ -8,6 +8,7 @@ import withReactContent from "sweetalert2-react-content";
 import Breadcrumb from "@/components/Breadscum";
 import DoctorLevelTable from "./doctor-level";
 import { Container } from "postcss";
+import toast from 'react-hot-toast';
 
 const MySwal = withReactContent(Swal);
 
@@ -35,6 +36,13 @@ export default function RegisterAsDoctor() {
     const [levels, setLevels] = useState<DoctorLevel[]>([]);
     const [cities, setCities] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
+    // OTP states
+    const [email, setEmail] = useState('')
+    const [otp, setOtp] = useState('')
+    const [otpSent, setOtpSent] = useState(false)
+    const [isOtpVerified, setIsOtpVerified] = useState(false)
+    const [isSendingOtp, setIsSendingOtp] = useState(false)
+    const [otpCooldown, setOtpCooldown] = useState(0)
 
     const specialtyOptions = specialties?.map((s) => ({ value: s._id, label: s.name }));
     const cityOptions = cities?.map((c) => ({ value: c.name, label: c.name }));
@@ -57,11 +65,82 @@ export default function RegisterAsDoctor() {
           .then((res) => setLevels(res));
       }, []);
 
+    useEffect(() => {
+      if (otpCooldown > 0) {
+        const timer = setTimeout(() => setOtpCooldown(prev => prev - 1), 1000)
+        return () => clearTimeout(timer)
+      }
+    }, [otpCooldown])
+
+    const handleSendOtp = async () => {
+      if (!email) {
+        toast.error('Vui lòng nhập email')
+        return
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(email)) {
+        toast.error('Email không hợp lệ')
+        return
+      }
+      setIsSendingOtp(true)
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/otp/send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        })
+        if (res.ok) {
+          setOtpSent(true)
+          setOtpCooldown(60)
+          toast.success('OTP đã được gửi đến email!')
+        } else {
+          toast.error('Không thể gửi OTP')
+        }
+      } catch (err) {
+        toast.error('Có lỗi xảy ra khi gửi OTP')
+      } finally {
+        setIsSendingOtp(false)
+      }
+    }
+
+    const handleVerifyOtp = async () => {
+      if (!otp || otp.length !== 6) {
+        toast.error('Mã OTP phải có 6 số')
+        return
+      }
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/otp/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, otp })
+        })
+        if (res.ok) {
+          setIsOtpVerified(true)
+          toast.success('Xác thực OTP thành công!')
+        } else {
+          setIsOtpVerified(false)
+          toast.error('Mã OTP không hợp lệ')
+        }
+      } catch (err) {
+        setIsOtpVerified(false)
+        toast.error('Có lỗi khi xác thực OTP')
+      }
+    }
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
+        if (!isOtpVerified) {
+          toast.error('Vui lòng xác thực OTP trước khi gửi đơn!')
+          setLoading(false)
+          return
+        }
         const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData.entries());
+        const formattedData = {
+            ...formData,
+            isActive: true,
+        }
+        const data = Object.fromEntries(formattedData.entries());
 
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/doctors`, {
@@ -101,7 +180,53 @@ export default function RegisterAsDoctor() {
                         <h2 className="text-lg font-semibold border-b pb-1 mb-4">THÔNG TIN CÁ NHÂN</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
                             <input name="fullName" required placeholder="Họ và tên" className="input w-full border-2 border-gray-300 rounded-md p-2" />
-                            <input name="email" type="email" required placeholder="Email" className="input w-full border-2 border-gray-300 rounded-md p-2" />
+                            {/* Email + OTP */}
+                            <div className="flex flex-col sm:flex-row gap-2">
+                              <input
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="Email"
+                                className="input w-full border-2 border-gray-300 rounded-md p-2"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                disabled={isOtpVerified}
+                              />
+                              <button
+                                type="button"
+                                onClick={handleSendOtp}
+                                disabled={isSendingOtp || otpCooldown > 0 || isOtpVerified}
+                                className={`px-3 py-2 rounded-md text-white text-sm ${isSendingOtp || otpCooldown > 0 || isOtpVerified ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary hover:bg-blue-700'}`}
+                              >
+                                {isOtpVerified
+                                  ? 'Đã xác thực'
+                                  : isSendingOtp
+                                  ? 'Đang gửi...'
+                                  : otpCooldown > 0
+                                  ? `Gửi lại sau ${otpCooldown}s`
+                                  : 'Gửi OTP'}
+                              </button>
+                            </div>
+                            {/* OTP input */}
+                            {!isOtpVerified && otpSent && (
+                              <div className="flex gap-2 mt-2">
+                                <input
+                                  type="text"
+                                  placeholder="Nhập mã OTP"
+                                  className="input w-full border-2 border-gray-300 rounded-md p-2"
+                                  value={otp}
+                                  onChange={e => setOtp(e.target.value)}
+                                  maxLength={6}
+                                />
+                                <button
+                                  type="button"
+                                  onClick={handleVerifyOtp}
+                                  className="px-3 py-2 rounded-md text-white text-sm bg-green-600 hover:bg-green-700"
+                                >
+                                  Xác thực OTP
+                                </button>
+                              </div>
+                            )}
                             <input name="phoneNumber" required placeholder="Số điện thoại" className="input w-full border-2 border-gray-300 rounded-md p-2" />
                             <input name="username" required placeholder="Tài khoản đăng nhập" className="input w-full border-2 border-gray-300 rounded-md p-2" />
                             <input name="password" required type="password" placeholder="Mật khẩu" className="input w-full border-2 border-gray-300 rounded-md p-2" />

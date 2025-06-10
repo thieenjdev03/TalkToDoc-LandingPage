@@ -13,6 +13,7 @@ export type DoctorCardProps = {
   name: string
   avatar: string
   reviews: number
+  avgScore: number
   avatarUrl?: string
   fullName: string
   rating: number
@@ -62,61 +63,61 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
       : doctor.specialty?.[0]?.name || ''
 
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden w-full max-w-[280px] sm:max-w-sm border hover:shadow-lg transition h-[380px] sm:h-[420px]">
-      <div className="relative">
+    <div className="bg-white shadow-md rounded-lg overflow-hidden w-full max-w-full sm:max-w-[280px] md:max-w-sm border hover:shadow-lg transition h-[400px] sm:h-[420px] flex flex-col">
+      <div className="relative h-32 sm:h-40 md:h-48 flex-shrink-0">
         <Image
           width={100}
           height={100}
           unoptimized
           src={doctor?.avatarUrl || ''}
           alt={doctor.fullName}
-          className="w-full h-40 sm:h-48 object-cover object-center"
+          className="w-full h-full object-cover object-center"
         />
-        <span className="absolute top-2 left-2 bg-primary text-white text-xs font-semibold p-1 rounded-md">
-          <FontAwesomeIcon icon={faStar} className="mr-1" /> {doctor?.rating || 0}
+        <span className="absolute top-2 left-2 bg-primary text-white text-xs sm:text-sm font-semibold p-1 px-2 rounded-md flex items-center">
+          <FontAwesomeIcon icon={faStar} className="mr-1 text-xs sm:text-sm" /> {doctor?.avgScore || 0}
         </span>
         <span
           onClick={toggleFavoriteDoctor}
-          className="absolute top-2 right-2 text-xs font-semibold bg-white opacity-80 rounded-xl p-1 cursor-pointer"
+          className="absolute top-2 right-2 text-xs sm:text-sm font-semibold bg-white opacity-80 rounded-xl p-1 cursor-pointer"
           title={isFavorite ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích'}
         >
           <FontAwesomeIcon
             icon={faHeart}
-            className={`text-lg ${isFavorite ? 'text-pink-600' : 'text-gray-400 hover:text-pink-600'} transition-colors duration-200`}
+            className={`text-lg sm:text-xl ${isFavorite ? 'text-pink-600' : 'text-gray-400 hover:text-pink-600'} transition-colors duration-200`}
           />
         </span>
       </div>
 
-      <div className="p-3 sm:p-4 flex flex-col justify-between h-[calc(100%-160px)] sm:h-[calc(100%-208px)]">
+      <div className="flex flex-col flex-1 p-2 sm:p-3 md:p-4 justify-between">
         <div>
-          <div className="flex justify-between items-center">
-            <h3 className="text-base sm:text-lg font-bold text-gray-800 line-clamp-1">{doctor.fullName}</h3>
-          </div>
-          <div className="flex items-center gap-2 mt-1">
-            {doctor?.isActive && (
-              <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                ● Trực tuyến
-              </span>
-            )}
-          </div>
-          <div className="flex items-center flex-wrap text-xs sm:text-sm text-gray-500 mt-2 gap-1 h-[50px] sm:h-[60px]">
-            
-            <span className="line-clamp-2"><FontAwesomeIcon icon={faLocationDot} className="text-blue-500 mr-1" />{doctor?.hospital?.name || 'Không rõ bệnh viện'}</span>
-            <li className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded mx-1 line-clamp-1">{specialtyName}</li>
+          <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 line-clamp-1">{doctor.fullName}</h3>
+          {doctor?.isActive && (
+            <span className="text-xs sm:text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full mt-1 inline-block">
+              ● Trực tuyến
+            </span>
+          )}
+          <div className="flex items-center flex-wrap text-xs sm:text-sm md:text-base text-gray-500 mt-2 gap-1">
+            <span className="line-clamp-1 flex items-center">
+              <FontAwesomeIcon icon={faLocationDot} className="text-blue-500 mr-1" />
+              {doctor?.hospital?.name || 'Không rõ bệnh viện'}
+            </span>
+            <li className="text-xs sm:text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded mx-1 line-clamp-1">{specialtyName}</li>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-3 sm:mt-4 pt-3 sm:pt-4 flex items-center justify-between">
+        <div className="mt-auto border-t border-gray-200 pt-3 sm:pt-4 flex items-center justify-between">
           <div>
-            <p className="text-md lg:text-lg text-gray-500">Giá Tư Vấn:</p>
-            <p className="text-base sm:text-lg font-bold text-red-600">
+            <p className="text-md sm:text-lg md:text-xl text-gray-500">Giá Tư Vấn:</p>
+            <p className="text-base sm:text-lg md:text-xl font-bold text-red-600">
               {doctor?.rank?.base_price?.toLocaleString('vi-VN') || doctor?.price?.toLocaleString('vi-VN') || '---'}đ
             </p>
           </div>
-          <button className="text-sm lg:text-md bg-blue-700 hover:bg-blue-800 text-white px-1 sm:px-4 py-1 sm:py-2 rounded-md flex items-center gap-1 sm:gap-2">
-            <FontAwesomeIcon icon={faCalendarCheck} />
-            <span className="hidden lg:inline">Đặt Lịch</span>
-            <span className="lg:hidden">Đặt Lịch</span>
+          <button
+            href={`/doctor/${doctor._id}`}
+            className="w-full sm:w-auto text-sm md:text-base bg-blue-700 hover:bg-blue-800 text-white px-3 py-2 rounded-md flex items-center justify-center gap-2 transition-all"
+          >
+            <FontAwesomeIcon icon={faCalendarCheck} className="text-base md:text-lg" />
+            <span className="hidden sm:inline">Đặt Lịch</span>
           </button>
         </div>
       </div>

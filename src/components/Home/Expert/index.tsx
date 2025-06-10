@@ -70,13 +70,12 @@ const Expert = () => {
 
     return (
         <section className="bg-secondary h-screen flex flex-col items-center justify-center">
-            <div className='mx-auto lg:max-w-screen-xl md:max-w-screen-md mt-auto mb-auto'>
+            <div className='mx-auto lg:max-w-screen-xl md:max-w-screen-md mt-auto mb-auto w-full'>
                 <div className="text-center flex justify-between flex-col mb-10">
-                    <p className='text-primary text-lg font-normal mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>
-                    <h2 className="text-3xl lg:text-4xl font-semibold` text-black dark:text-white">
+                    <p className='text-primary text-2xl font-semibold mb-4 tracking-widest uppercase'>TOP Bác Sĩ Hàng Đầu</p>
+                    <h2 className="text-3xl lg:text-4xl font-bold` text-black dark:text-white">
                         Gặp Gỡ Bác Sĩ Hàng Đầu Của Chúng Tôi
                     </h2>
-
                 </div>
                 <Slider {...settings}>
                     {

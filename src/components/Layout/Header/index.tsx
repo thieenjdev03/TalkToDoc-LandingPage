@@ -150,7 +150,7 @@ const Header: React.FC = () => {
                   >
                     x
                   </button>
-                  <SignUp />
+                  <SignUp  setIsSignUpOpen={setIsSignUpOpen}/>
                 </div>
               </div>
             )}

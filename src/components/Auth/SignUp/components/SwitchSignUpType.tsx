@@ -1,10 +1,15 @@
+import { useRouter } from "next/navigation";
 
-const SwitchSignUpType = ({ onSelectType }: { onSelectType: (type: 'doctor' | 'patient') => void }) => {
+const SwitchSignUpType = ({ setIsSignUpOpen, onSelectType }: { setIsSignUpOpen: (isOpen: boolean) => void, onSelectType: (type: 'doctor' | 'patient' | null) => void }) => {
+  const router = useRouter();
   const options = [
     {
       label: 'Đăng ký với tư cách Bác sĩ',
       icon: '🩺',
-      onClick: () => onSelectType('doctor'),
+      onClick: () => {
+        router.push('/sign-up-doctor')
+        setIsSignUpOpen(false)
+      },
     },
     {
       label: 'Đăng ký với tư cách Bệnh nhân',
