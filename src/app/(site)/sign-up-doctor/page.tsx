@@ -89,12 +89,13 @@ export default function RegisterAsDoctor() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email })
         })
+        const result = await res.json()
         if (res.ok) {
           setOtpSent(true)
           setOtpCooldown(60)
           toast.success('OTP đã được gửi đến email!')
         } else {
-          toast.error('Không thể gửi OTP')
+          toast.error(result?.message || 'Không thể gửi OTP')
         }
       } catch (err) {
         toast.error('Có lỗi xảy ra khi gửi OTP')
@@ -114,12 +115,13 @@ export default function RegisterAsDoctor() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, otp })
         })
+        const result = await res.json()
         if (res.ok) {
           setIsOtpVerified(true)
           toast.success('Xác thực OTP thành công!')
         } else {
           setIsOtpVerified(false)
-          toast.error('Mã OTP không hợp lệ')
+          toast.error(result?.message || 'Mã OTP không hợp lệ')
         }
       } catch (err) {
         setIsOtpVerified(false)
@@ -135,27 +137,46 @@ export default function RegisterAsDoctor() {
           setLoading(false)
           return
         }
-        const formData = new FormData(e.currentTarget);
-        const formattedData = {
-            ...formData,
-            isActive: true,
+        const formData = new FormData(e.currentTarget)
+        const data = {
+          ...Object.fromEntries(formData.entries()),
+          email,
+          isActive: true
         }
-        const data = Object.fromEntries(formattedData.entries());
-
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/doctors`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
-            if (!res.ok) throw new Error("Gửi yêu cầu thất bại.");
-
+            let result
+            try {
+              result = await res.json()
+            } catch (e) {
+              result = null
+            }
+            if (!res.ok) {
+              await MySwal.fire({
+                title: "Lỗi",
+                text: result?.message || "Gửi yêu cầu thất bại.",
+                icon: "error",
+                confirmButtonText: "Đóng",
+              });
+              setLoading(false)
+              return
+            }
             await MySwal.fire({
                 title: "Gửi thành công!",
                 text: "Chúng tôi sẽ liên hệ với bạn sớm nhất.",
                 icon: "success",
-                confirmButtonText: "Đóng",
-            });
+                showCancelButton: true,
+                confirmButtonText: "Đăng nhập ngay",
+                cancelButtonText: "Đóng"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/sign-in'
+                }
+            })
         } catch (err: any) {
             await MySwal.fire({
                 title: "Lỗi",
