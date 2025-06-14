@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* ========= Root Variables ========= */
+:root {
+  --background: #fefefe;
+  --foreground: #111;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121212;
+    --foreground: #f1f1f1;
+  }
+}
+
+/* Optional: Light mode override */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #fefefe;
+    --foreground: #111;
+  }
+}
+
+/* ========= Body styles ========= */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ========= Scrollbar styles ========= */
+/* Hidden Scrollbar */
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scroll-hidden {
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+.scroll-custom::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-custom::-webkit-scrollbar-thumb {
+  background-color: rgba(136, 136, 136, 0.6);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
