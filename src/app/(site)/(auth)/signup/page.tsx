@@ -12,7 +12,7 @@ const SignupPage = () => {
     <>
       <Breadcrumb pageName="Đăng Ký" />
 
-      <SignUp />
+      <SignUp setIsSignUpOpen={() => {}} />
     </>
   );
 };
