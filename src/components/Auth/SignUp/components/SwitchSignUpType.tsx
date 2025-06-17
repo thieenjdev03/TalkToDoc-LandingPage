@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 
-const SwitchSignUpType = ({ setIsSignUpOpen, onSelectType }: { setIsSignUpOpen: (isOpen: boolean) => void, onSelectType: (type: 'doctor' | 'patient' | null) => void }) => {
+const SwitchSignUpType = ({ setIsSignUpOpen, onSelectType }: { setIsSignUpOpen?: (isOpen: boolean) => void, onSelectType: (type: 'doctor' | 'patient' | null) => void }) => {
   const router = useRouter();
   const options = [
     {
@@ -8,7 +8,7 @@ const SwitchSignUpType = ({ setIsSignUpOpen, onSelectType }: { setIsSignUpOpen: 
       icon: '🩺',
       onClick: () => {
         router.push('/sign-up-doctor')
-        setIsSignUpOpen(false)
+        if (setIsSignUpOpen) setIsSignUpOpen(false)
       },
     },
     {

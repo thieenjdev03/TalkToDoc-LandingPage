@@ -1,13 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import Swal from "sweetalert2";
-import SocialSignUp from "../SocialSignUp";
 import Logo from "@/components/Layout/Header/Logo";
-import { useEffect, useState } from "react";
-import Loader from "@/components/Common/Loader";
-import axios from "axios";
+import { useState } from "react";
 import SignUpForm from './components/SignUpForm'
 import SwitchSignUpType from './components/SwitchSignUpType'
 
@@ -37,7 +32,7 @@ interface DoctorPayload extends BasePayload {
   rank?: string
 }
 
-const SignUp = ({ setIsSignUpOpen }: { setIsSignUpOpen: (isOpen: boolean) => void }) => {
+const SignUp = ({ setIsSignUpOpen }: { setIsSignUpOpen?: (isOpen: boolean) => void }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -55,7 +50,6 @@ const SignUp = ({ setIsSignUpOpen }: { setIsSignUpOpen: (isOpen: boolean) => voi
       ) : (
         <>
           <SignUpForm
-            setIsSignUpOpen={setIsSignUpOpen}
             type={selectedType}
             email={email}
             setEmail={setEmail}

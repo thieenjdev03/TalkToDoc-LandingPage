@@ -34,7 +34,6 @@ interface SignUpFormProps {
   setEmail: (email: string) => void
   loading: boolean
   setLoading: (loading: boolean) => void
-  setIsSignUpOpen: (isOpen: boolean) => void
 }
 
 interface ValidationErrors {
@@ -54,8 +53,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   email,
   setEmail,
   loading,
-  setLoading,
-  setIsSignUpOpen
+  setLoading
 }) => {
   const [otpSent, setOtpSent] = useState(false);
   const [isOtpVerified, setIsOtpVerified] = useState(false);  
