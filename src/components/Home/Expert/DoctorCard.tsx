@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import router from 'next/router'
 
 export type DoctorCardProps = {
   _id: string
@@ -113,7 +114,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorCardProps }) {
             </p>
           </div>
           <button
-            href={`/doctor/${doctor._id}`}
+            onClick={() => router.push(`/doctor/${doctor._id}`)}
             className="w-full sm:w-auto text-sm md:text-base bg-blue-700 hover:bg-blue-800 text-white px-3 py-2 rounded-md flex items-center justify-center gap-2 transition-all"
           >
             <FontAwesomeIcon icon={faCalendarCheck} className="text-base md:text-lg" />

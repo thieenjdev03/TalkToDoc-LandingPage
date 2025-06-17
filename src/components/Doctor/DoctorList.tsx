@@ -18,6 +18,7 @@ function normalizeDoctor(doc: any): DoctorCardProps {
     reviews: doc.reviews || 20,
     hospital: doc.hospital,
     rank: doc.rank,
+    avgScore: doc.avgScore || 0,
     city: doc.city,
     position: doc.position,
     experience: doc.experienceYears || doc.experience || 0,
