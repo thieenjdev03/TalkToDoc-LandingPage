@@ -52,15 +52,15 @@ export default function RegisterAsDoctor() {
           .then((res) => res.json())
           .then(setCities);
       
-        fetch("http://localhost:3000/api/v1/hospitals/search?page=1&limit=100")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/hospitals/search?page=1&limit=100`)
           .then((res) => res.json())
           .then((res) => setHospitals(res.data));
       
-        fetch("http://localhost:3000/api/v1/specialties/search?query=&page=1&limit=10&sortOrder=desc&sortField=updatedAt")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/specialties/search?query=&page=1&limit=10&sortOrder=desc&sortField=updatedAt`)
           .then((res) => res.json())
           .then((res) => setSpecialties(res.data));
       
-        fetch("http://localhost:3000/api/v1/doctor_levels")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/doctor_levels`)
           .then((res) => res.json())
           .then((res) => setLevels(res));
       }, []);
