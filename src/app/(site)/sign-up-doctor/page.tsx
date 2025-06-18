@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/Breadscum";
 import DoctorLevelTable from "./doctor-level";
 import { Container } from "postcss";
 import toast from 'react-hot-toast';
+import { useRouter } from "next/navigation";
 
 const MySwal = withReactContent(Swal);
 
@@ -46,6 +47,7 @@ export default function RegisterAsDoctor() {
 
     const specialtyOptions = specialties?.map((s) => ({ value: s._id, label: s.name }));
     const cityOptions = cities?.map((c) => ({ value: c.name, label: c.name }));
+    const router = useRouter();
 
     useEffect(() => {
         fetch("https://provinces.open-api.vn/api/")
@@ -174,7 +176,7 @@ export default function RegisterAsDoctor() {
                 cancelButtonText: "Đóng"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '/sign-in'
+                  router.push('https://dashboard.talktodoc.online/')
                 }
             })
         } catch (err: any) {
