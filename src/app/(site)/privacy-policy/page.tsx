@@ -26,8 +26,6 @@ export default function PrivacyPolicy() {
               <li>Thông tin tài khoản: tên đăng nhập, mật khẩu (được mã hóa).</li>
               <li>Thông tin giao dịch: lịch sử đặt lịch, thanh toán, hóa đơn.</li>
               <li>Thông tin kỹ thuật: địa chỉ IP, trình duyệt, cookies.</li>
-              <li>Dữ liệu vị trí (nếu cho phép truy cập GPS).</li>
-              <li>Thông tin từ bên thứ ba như Google, Facebook khi bạn đăng nhập qua họ.</li>
             </ul>
           </Section>
 
@@ -76,24 +74,81 @@ export default function PrivacyPolicy() {
             </p>
           </Section>
 
-          <Section title="9. Trẻ em">
-            <p>
-              Không thu thập thông tin từ trẻ em dưới 13 tuổi. Nếu phát hiện, hệ thống sẽ xóa dữ liệu ngay.
-            </p>
-          </Section>
-
-          <Section title="10. Cập nhật chính sách">
+          <Section title="9. Cập nhật chính sách">
             <p>
               Chính sách có thể thay đổi. Chúng tôi sẽ thông báo trên website hoặc qua email nếu có cập nhật quan trọng.
             </p>
           </Section>
 
-          <Section title="11. Liên hệ">
+          <Section title="10. Liên hệ">
             <ul className="list-disc pl-5 space-y-1">
               <li>Email: talktodoc.vlu@gmail.com</li>
               <li>SĐT: 0909 999 999</li>
               <li>Địa chỉ: 69/68 Đặng Thùy Trâm, Phường 13, Quận Bình Thạnh</li>
             </ul>
+          </Section>
+          <Section title="11. Chính sách sử dụng Trí tuệ nhân tạo (AI)">
+            <Section title="1. Mục đích của AI trong hệ thống">
+              <p>
+                AI trong TalkToDoc được thiết kế để hỗ trợ người dùng tìm hiểu thông tin sơ bộ về quy trình khám bệnh, dịch vụ y tế, hướng dẫn sử dụng nền tảng, và giải đáp các thắc mắc thường gặp. AI <strong>không đóng vai trò thay thế bác sĩ</strong>, không chẩn đoán hay kê đơn thuốc.
+              </p>
+            </Section>
+
+            <Section title="2. Trách nhiệm sử dụng AI">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Người dùng cần hiểu rằng AI chỉ đưa ra các thông tin tham khảo, không mang tính chất tư vấn y tế chuyên sâu.</li>
+                <li>Không sử dụng AI để yêu cầu chẩn đoán bệnh, kê đơn, điều trị y tế hay nội dung trái pháp luật.</li>
+                <li>Nghiêm cấm hành vi lạm dụng AI để tạo nội dung sai lệch, phản cảm hoặc gây tổn hại cho cá nhân, tổ chức khác.</li>
+              </ul>
+            </Section>
+
+            <Section title="3. Giới hạn của AI và cảnh báo sử dụng">
+              <p>
+                Nội dung trả lời từ AI được tạo bởi mô hình ngôn ngữ tự động, có thể không chính xác, không cập nhật hoặc không phù hợp với từng trường hợp cụ thể. TalkToDoc không chịu trách nhiệm nếu người dùng sử dụng câu trả lời của AI làm căn cứ điều trị hoặc ra quyết định y tế quan trọng.
+              </p>
+            </Section>
+
+            <Section title="4. Quy định xử lý vi phạm">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>TalkToDoc có quyền theo dõi và kiểm tra nội dung tương tác với AI để đảm bảo không vi phạm chính sách.</li>
+                <li>Trong trường hợp phát hiện hành vi lạm dụng AI, hệ thống có thể tạm khóa tính năng hoặc tài khoản liên quan mà không cần báo trước.</li>
+              </ul>
+            </Section>
+
+            <Section title="5. Thu thập & lưu trữ tương tác với AI">
+              <p>
+                Các cuộc hội thoại với AI có thể được ghi log để cải thiện chất lượng dịch vụ, huấn luyện mô hình, hoặc xử lý vi phạm. Mọi thông tin thu thập đều tuân thủ Chính sách bảo mật đã công bố ở trên.
+              </p>
+            </Section>
+          </Section>
+          <Section title="12. Chính sách thanh toán và hoàn tiền">
+            <Section title="1. Phương thức thanh toán">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Người dùng có thể thanh toán qua <strong>ví TalkToDoc</strong> hoặc cổng <strong>VNPay</strong>.</li>
+                <li>Số tiền thanh toán sẽ được khấu trừ trực tiếp từ số dư ví hoặc chuyển hướng sang trang VNPay để xử lý.</li>
+                <li>Mọi giao dịch thanh toán đều được mã hóa và bảo vệ theo chuẩn an toàn cao.</li>
+              </ul>
+            </Section>
+
+            <Section title="2. Chính sách hoàn tiền">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Trong trường hợp bác sĩ <strong>từ chối lịch hẹn</strong> hoặc lịch bị <strong>hủy do lỗi hệ thống</strong>, số tiền sẽ được hoàn <strong>trực tiếp vào ví TalkToDoc của người dùng</strong>.</li>
+                <li>Hệ thống gửi thông báo ngay sau khi hoàn tiền thành công.</li>
+                <li>Thời gian hoàn tiền có thể mất tối đa 1 giờ kể từ khi xác nhận hủy thành công.</li>
+              </ul>
+            </Section>
+
+            <Section title="3. Không áp dụng rút tiền khỏi ví">
+              <p>
+                Vì lý do pháp lý, <strong>người dùng không thể rút tiền từ ví TalkToDoc</strong>. Số dư ví chỉ được sử dụng để đặt lịch khám mới hoặc thanh toán các dịch vụ khác trên nền tảng.
+              </p>
+            </Section>
+
+            <Section title="4. Trường hợp đặc biệt">
+              <p>
+                Nếu có lỗi trong quá trình thanh toán hoặc hoàn tiền, người dùng có thể liên hệ bộ phận hỗ trợ qua email hoặc hotline. Hệ thống sẽ kiểm tra và xử lý trong vòng 24–48 giờ làm việc.
+              </p>
+            </Section>
           </Section>
           <h1 className="text-3xl font-bold">- Điều khoản đăng ký làm bác sĩ</h1>
           <section id="terms-of-sign-up-doctor" className="terms-of-service-section pt-0 pb-0">
@@ -153,7 +208,7 @@ export default function PrivacyPolicy() {
               Chúng tôi có quyền cập nhật điều khoản mà không cần thông báo trước. Việc bạn tiếp tục sử dụng dịch vụ sau khi có thay đổi đồng nghĩa với việc bạn đồng ý với các điều khoản mới.
             </p>
           </section>
-         
+
         </div>
       </section>
     </>
