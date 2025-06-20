@@ -5,7 +5,7 @@ const SwitchSignUpType = ({ setIsSignUpOpen, onSelectType }: { setIsSignUpOpen?:
   const options = [
     {
       label: 'Đăng ký với tư cách Bác sĩ',
-      icon: '🩺',
+      icon: <i className="fa-solid fa-user-doctor"></i>,
       onClick: () => {
         router.push('/sign-up-doctor')
         if (setIsSignUpOpen) setIsSignUpOpen(false)
@@ -13,7 +13,7 @@ const SwitchSignUpType = ({ setIsSignUpOpen, onSelectType }: { setIsSignUpOpen?:
     },
     {
       label: 'Đăng ký với tư cách Bệnh nhân',
-      icon: '🧑‍⚕️',
+      icon: <i className="fa-solid fa-user"></i>,
       onClick: () => onSelectType('patient'),
     },
   ]
