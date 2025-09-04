@@ -1,0 +1,32 @@
+{
+  "name": "TalkToDoc - Tư vấn y tế trực tuyến",
+  "short_name": "TalkToDoc",
+  "description": "Nền tảng tư vấn y tế trực tuyến hàng đầu Việt Nam",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/logo/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/logo/icon.png",
+      "sizes": "300x300",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["health", "medical", "consultation"],
+  "lang": "vi"
+} 
