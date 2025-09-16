@@ -22,8 +22,47 @@ export const FeaturesData: {
       imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651246/p4z4ubk2afjabsbzhucs.svg',
       heading: "Cơ Xương Khớp",
       subheading: "Vật lý trị liệu, đau vai gáy, đau cột sống",
-    }
-
+    },
+    {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651246/p4z4ubk2afjabsbzhucs.svg',
+      heading: "Chẩn đoán hình ảnh",
+      subheading: "Chẩn đoán hình ảnh",
+    },
+    {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744728865/gvlddb84epi9w9qgeu9s.svg',
+      heading: "Nội soi",
+      subheading: "Nội soi",
+    },
+    {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651244/lwsca4tavkfjzty0fv2x.svg',
+      heading: "Khoa nhi",
+      subheading: "Tư vấn về nhi khoa",
+    },
+    {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651244/lwsca4tavkfjzty0fv2x.svg',
+      heading: "Tai-mũi-họng",
+      subheading: "Tư vấn các vấn để vể Tai, mũi, họng",
+    },
+      {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744728876/wy03m9benlitm9zvsesm.svg',
+      heading: "Hô hấp và dị ứng",
+      subheading: "Hô hấp và dị ứng",
+    },
+      {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744728876/wy03m9benlitm9zvsesm.svg',
+      heading: "Nội tiết",
+      subheading: "Nội tiết",
+    },
+    { imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744651244/lwsca4tavkfjzty0fv2x.svg',
+      heading: "Gan mật",
+      subheading: "Gan mật",
+    },
+    {
+      imgSrc: 'https://res.cloudinary.com/dut4zlbui/image/upload/v1744728876/wy03m9benlitm9zvsesm.svg',
+      heading: "Xét nghiệm",
+      subheading: "Xét nghiệm",
+    },
+    
   ]
 
 export const ExpertData: {

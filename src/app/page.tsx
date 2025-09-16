@@ -6,9 +6,11 @@ import Expert from "@/components/Home/Expert";
 import Gallery from "@/components/Home/Gallery";
 import Newsletter from "@/components/Home/Newsletter";
 import ServicePrice from "@/components/Home/ServicesPrice";
+import Advices from "@/components/Home/AI_advices";
 import { Metadata } from "next";
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
+import HealthcareServices from "@/components/Home/HealthServices";
 config.autoAddCss = false
 export const metadata: Metadata = {
   title: "TalkToDoc - Trang Người Dùng",
@@ -18,9 +20,11 @@ export default function Home() {
   return (
     <main>
       <Hero/>
-      <Features />
-      <Cook />
+      <HealthcareServices/>
+      <Advices/>
       <Gallery />
+      <Cook />
+      <Features />
       <Expert />
       <ServicePrice/>
       <link

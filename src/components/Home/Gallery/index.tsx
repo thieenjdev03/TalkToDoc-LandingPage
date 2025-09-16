@@ -14,7 +14,7 @@ const Gallery = () => {
   }, [])
 
   return (
-    <section  id="process-section" className='min-h-screen flex flex-col items-center justify-center'>
+    <section  id="process-section" className='min-h-screen flex flex-col items-center justify-center '>
       <div className='container py-auto mx-auto lg:max-w-screen-xl md:max-w-screen-md flex flex-col items-center justify-center' id='gallery-section'>
         <div className="text-center">
           <p className='text-primary text-2xl font-semibold mb-4 tracking-widest uppercase'>Quy Trình</p>

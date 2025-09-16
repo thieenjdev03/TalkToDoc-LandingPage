@@ -13,14 +13,14 @@ const Hero = () => {
         backgroundPosition: 'center'
       }} 
       id="home-section"
-      className="min-h-screen flex items-center"
+      className="min-h-screen flex items-center m-20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="col-span-1 lg:col-span-6">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold mb-4 sm:mb-5 text-black dark:text-white text-center lg:text-left">
-              Talk to a Doctor,
-              Anytime, Anywhere
+              Kết nối với Bác Sĩ <br/>
+              Mọi Lúc, Mọi Nơi
             </h1>
             <p className="text-base sm:text-xl lg:text-2xl text-black/55 dark:text-white/50 font-normal mb-8 sm:mb-10 text-center lg:text-left">
               Nền tảng tư vấn y tế trực tuyến 24/7, kết nối bác sĩ và AI chăm sóc sức khỏe của bạn.
