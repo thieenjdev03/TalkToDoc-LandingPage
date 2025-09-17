@@ -19,7 +19,7 @@ const Features = () => {
           {FeaturesData.map((item, i) => (
             <div 
               key={i} 
-              className='p-4 rounded-3xl bg-gradient-to-b flex flex-col justify-between specialty-item'
+              className='rounded-3xl bg-gradient-to-b flex flex-col justify-between specialty-item'
             >
               <div className='work-img-bg rounded-full flex justify-center mb-4'>
                 <Image 
