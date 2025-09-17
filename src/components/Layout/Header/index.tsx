@@ -88,7 +88,6 @@ const Header: React.FC = () => {
           <Logo
             width={150}
             height={45}
-            className="sm:w-[200px] sm:h-[60px]"
           />
           <nav className="hidden lg:flex flex-grow items-center gap-8 justify-center">
             {headerData.map((item, index) => (
