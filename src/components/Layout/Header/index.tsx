@@ -157,7 +157,7 @@ const Header: React.FC = () => {
         >
           <div className="flex items-center justify-between p-3 sm:p-4">
             <h2 className="text-base sm:text-lg font-bold text-midnight_text dark:text-midnight_text">
-              <Logo width={120} height={36} className="sm:w-[150px] sm:h-[45px]" />
+              <Logo width={120} height={36}  />
             </h2>
             <button
               onClick={() => setNavbarOpen(false)}
