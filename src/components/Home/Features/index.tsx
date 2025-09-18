@@ -6,7 +6,7 @@ import { FeaturesData } from '@/app/api/data'
 const Features = () => {
   return (
     <section id="specialty-section" className='sm:px-2 flex items-center justify-center'>
-      <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md'>
+      <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md p-20'>
         <div className='text-center mb-14'>
           <p className='text-primary text-2xl font-semibold mb-4 tracking-widest uppercase'>Chuyên Khoa</p>
           <h2 className='text-3xl lg:text-4xl font-bold text-black dark:text-white lg:max-w-60% mx-auto'>
